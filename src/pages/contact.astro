@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Contact" description="Get in touch with Wunderelf Studios.">
+  <section class="py-24">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
+        <div class="w-16 h-1 bg-teal mx-auto rounded-full" />
+        <p class="text-text-muted mt-6 max-w-xl mx-auto">
+          Have a question, press inquiry, or just want to say hello? We'd love to hear from you.
+        </p>
+      </div>
+
+      <!-- Contact methods -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
+        <div class="bg-dark-card border border-dark-border rounded-xl p-8 text-center">
+          <div class="text-3xl mb-4">&#x2709;</div>
+          <h3 class="font-heading text-lg font-bold mb-2">Email</h3>
+          <a href="mailto:hello@wunderelfstudios.com" class="text-teal-light hover:text-gold transition-colors text-sm">
+            hello@wunderelfstudios.com
+          </a>
+        </div>
+
+        <div class="bg-dark-card border border-dark-border rounded-xl p-8 text-center">
+          <div class="text-3xl mb-4">&#x1F3AE;</div>
+          <h3 class="font-heading text-lg font-bold mb-2">Steam</h3>
+          <a href="#" class="text-teal-light hover:text-gold transition-colors text-sm">
+            Echoes of Choice on Steam
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact form (works with Netlify Forms) -->
+      <div class="bg-dark-card border border-dark-border rounded-xl p-8">
+        <h2 class="font-heading text-2xl font-bold mb-6 text-center">Send a Message</h2>
+
+        <form name="contact" method="POST" data-netlify="true" class="space-y-6">
+          <input type="hidden" name="form-name" value="contact" />
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-text-muted mb-2">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-text placeholder:text-text-muted/50 focus:outline-none focus:border-teal transition-colors"
+                placeholder="Your name"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-text-muted mb-2">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-text placeholder:text-text-muted/50 focus:outline-none focus:border-teal transition-colors"
+                placeholder="you@example.com"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="subject" class="block text-sm font-medium text-text-muted mb-2">Subject</label>
+            <select
+              id="subject"
+              name="subject"
+              class="w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-text focus:outline-none focus:border-teal transition-colors"
+            >
+              <option value="general">General Inquiry</option>
+              <option value="press">Press / Media</option>
+              <option value="bug">Bug Report</option>
+              <option value="feedback">Feedback</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-text-muted mb-2">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-text placeholder:text-text-muted/50 focus:outline-none focus:border-teal transition-colors resize-y"
+              placeholder="What's on your mind?"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full sm:w-auto px-8 py-3 bg-teal hover:bg-teal-light text-white font-heading font-bold text-lg rounded-lg transition-colors cursor-pointer"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

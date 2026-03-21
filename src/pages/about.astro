@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="About" description="Learn about Wunderelf Studios and our mission to craft meaningful narrative RPGs.">
+  <section class="py-24">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4">About <span class="text-teal-light">Wunderelf</span> Studios</h1>
+        <div class="w-16 h-1 bg-teal mx-auto rounded-full" />
+      </div>
+
+      <div class="space-y-8 text-text-muted leading-relaxed text-lg">
+        <p>
+          Wunderelf Studios is an indie game studio focused on narrative-driven RPGs.
+          We believe that the best games are the ones where your choices genuinely matter,
+          where every decision ripples through the world and shapes the story in meaningful ways.
+        </p>
+
+        <p>
+          Our debut title, <a href="/echoes-of-choice" class="text-teal-light hover:text-gold transition-colors font-medium">Echoes of Choice</a>,
+          is a turn-based RPG with deep class customization, branching storylines, and cooperative multiplayer.
+          It's the kind of game we've always wanted to play: one where the narrative respects the player's agency
+          and the combat rewards strategic thinking.
+        </p>
+
+        <p>
+          We're committed to building games with care, balancing depth with accessibility,
+          and creating worlds that players want to return to.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-24 bg-dark-surface">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-heading text-3xl font-bold mb-4">Our Values</h2>
+        <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
+      </div>
+
+      <div class="space-y-12">
+        <div class="flex gap-6">
+          <div class="shrink-0 w-12 h-12 bg-dark-card border border-dark-border rounded-lg flex items-center justify-center text-2xl">
+            &#x1F3AF;
+          </div>
+          <div>
+            <h3 class="font-heading text-xl font-bold mb-2 text-text">Player Agency</h3>
+            <p class="text-text-muted leading-relaxed">
+              Choices should be real. We don't create the illusion of branching; we build genuinely different
+              paths with unique content, encounters, and outcomes.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-6">
+          <div class="shrink-0 w-12 h-12 bg-dark-card border border-dark-border rounded-lg flex items-center justify-center text-2xl">
+            &#x2696;
+          </div>
+          <div>
+            <h3 class="font-heading text-xl font-bold mb-2 text-text">Balanced Depth</h3>
+            <p class="text-text-muted leading-relaxed">
+              Deep systems that are approachable. 56 classes sounds complex, but the upgrade path
+              feels natural. You start simple and specialize as you learn.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-6">
+          <div class="shrink-0 w-12 h-12 bg-dark-card border border-dark-border rounded-lg flex items-center justify-center text-2xl">
+            &#x267F;
+          </div>
+          <div>
+            <h3 class="font-heading text-xl font-bold mb-2 text-text">Accessibility</h3>
+            <p class="text-text-muted leading-relaxed">
+              Color blind modes, screen reader support, configurable text speed, keyboard and gamepad support.
+              Great games should be playable by everyone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
