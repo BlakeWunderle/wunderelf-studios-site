@@ -4,12 +4,15 @@ import FeatureCard from "../components/FeatureCard.astro";
 import ScreenshotGallery from "../components/ScreenshotGallery.astro";
 
 const screenshots = [
-  { src: "/images/screenshot-1.jpg", alt: "Battle scene with ATB combat" },
-  { src: "/images/screenshot-2.jpg", alt: "Narrative choice branching" },
-  { src: "/images/screenshot-3.jpg", alt: "Class upgrade at town" },
-  { src: "/images/screenshot-4.jpg", alt: "Party creation in the tavern" },
-  { src: "/images/screenshot-5.jpg", alt: "Boss battle encounter" },
-  { src: "/images/screenshot-6.jpg", alt: "Story branching moment" },
+  { src: "/images/screenshot-1.png", alt: "Title screen" },
+  { src: "/images/screenshot-2.png", alt: "Story selection" },
+  { src: "/images/screenshot-3.png", alt: "Class selection" },
+  { src: "/images/screenshot-4.png", alt: "Narrative text" },
+  { src: "/images/screenshot-5.png", alt: "Branching choice" },
+  { src: "/images/screenshot-6.png", alt: "Battle combat" },
+  { src: "/images/screenshot-7.png", alt: "Battle summary" },
+  { src: "/images/screenshot-8.png", alt: "Class upgrade" },
+  { src: "/images/screenshot-9.png", alt: "Compendium" },
 ];
 ---
 
@@ -19,10 +22,12 @@ const screenshots = [
 >
   <!-- Hero -->
   <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-dark-bg via-dark-surface to-dark-bg" />
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--color-gold)_0%,_transparent_60%)] opacity-10" />
+    <img src="/images/hero.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-dark-bg/70" />
+    <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-dark-bg/80" />
 
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <img src="/images/game-logo.png" alt="Echoes of Choice" class="h-16 md:h-24 mx-auto mb-6" />
       <h1 class="font-heading text-5xl md:text-7xl font-bold mb-4">
         <span class="text-gold">Echoes</span> of <span class="text-gold">Choice</span>
       </h1>
