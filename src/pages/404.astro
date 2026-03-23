@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Page Not Found" description="The page you're looking for doesn't exist.">
+  <section class="py-24 min-h-[60vh] flex items-center">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h1 class="font-heading text-6xl md:text-8xl font-bold text-teal-light mb-4">404</h1>
+      <p class="text-xl text-text-muted mb-8">
+        This path doesn't exist. Maybe it's a branch you haven't unlocked yet.
+      </p>
+      <a
+        href="/"
+        class="inline-block px-8 py-3 bg-teal hover:bg-teal-light text-white font-heading font-bold text-lg rounded-lg transition-colors"
+      >
+        Back to Home
+      </a>
+    </div>
+  </section>
+</BaseLayout>
