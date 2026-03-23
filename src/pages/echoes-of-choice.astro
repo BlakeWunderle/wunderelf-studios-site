@@ -56,27 +56,27 @@ const screenshots = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <FeatureCard
           title="ATB Combat"
-          description="Speed-based Active Time Battle system with turn order prediction. Position your party, manage abilities, and outmaneuver enemies."
+          description="Speed determines who acts first. A turn order bar shows upcoming turns so you can plan ahead. Physical attacks, magic, buffs, debuffs, and terrain abilities all factor into every fight. Crits, dodges, and status effects keep combat dynamic."
         />
         <FeatureCard
           title="56 Unique Classes"
-          description="6 base classes branch into 16 Tier 1 and 34 Tier 2 specializations. From Squire to Dragoon, Mage to Chronomancer."
+          description="Start as one of six base classes, then specialize through two upgrade tiers. A Squire can become a Duelist and then a Dragoon. A Mage can become an Acolyte and then a Warlock. Every path plays differently, with unique abilities and stat growth."
         />
         <FeatureCard
           title="3 Story Campaigns"
-          description="Three interconnected stories with branching paths, unique enemies, and endings shaped by your choices along the way."
+          description="Each story is a self-contained adventure with its own cast, enemies, and branching paths. Choices at key moments split the narrative into genuinely different routes with unique battles and endings. One playthrough sees roughly half the content."
         />
         <FeatureCard
           title="Co-op Multiplayer"
-          description="Play locally with 2-3 players or online. Vote on story branches together. Each player controls their own party member."
+          description="Play with 2-3 friends locally or online. Each player creates and controls their own party member. When the story branches, the group votes on which path to take. Drop-in works mid-game, and AI takes over if someone disconnects."
         />
         <FeatureCard
           title="140+ Abilities"
-          description="Damage, healing, buffs, debuffs, and terrain effects. Each class brings a unique toolkit to the party."
+          description="Every class has its own ability set. Paladins heal and shield. Bombardiers deal AoE explosive damage. Chronomancers manipulate turn order. Shapeshifters transform for melee power. Building a party means combining toolkits that complement each other."
         />
         <FeatureCard
           title="High Replayability"
-          description="Branch points create different paths through each story. Multiple endings reward different choices and party compositions."
+          description="Three stories with multiple branch points each. Different class compositions change how fights play out. A party of tanks and healers survives differently than a glass cannon team. The compendium tracks every enemy and class you discover across runs."
         />
       </div>
     </div>
@@ -94,25 +94,60 @@ const screenshots = [
         </p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { name: "Squire", desc: "Physical fighters", color: "text-red-400" },
-          { name: "Mage", desc: "Arcane casters", color: "text-blue-400" },
-          { name: "Entertainer", desc: "Support & buffs", color: "text-purple-400" },
-          { name: "Tinker", desc: "Inventors", color: "text-amber-400" },
-          { name: "Wildling", desc: "Nature & beasts", color: "text-green-400" },
-          { name: "Wanderer", desc: "Magic defense", color: "text-cyan-400" },
+          {
+            name: "Squire",
+            desc: "Physical fighters who master weapons and martial arts.",
+            color: "text-red-400",
+            border: "hover:border-red-400/50",
+            branches: "Duelist, Ranger, Martial Artist \u2192 Cavalry, Dragoon, Mercenary, Hunter, Ninja, Monk",
+          },
+          {
+            name: "Mage",
+            desc: "Arcane casters wielding elemental and divine magic.",
+            color: "text-blue-400",
+            border: "hover:border-blue-400/50",
+            branches: "Invoker, Acolyte \u2192 Infernalist, Tidecaller, Tempest, Paladin, Priest, Warlock",
+          },
+          {
+            name: "Entertainer",
+            desc: "Performers who inspire allies and demoralize enemies.",
+            color: "text-purple-400",
+            border: "hover:border-purple-400/50",
+            branches: "Bard, Dervish, Orator \u2192 Warcrier, Minstrel, Illusionist, Mime, Laureate, Elegist",
+          },
+          {
+            name: "Tinker",
+            desc: "Inventors and academics who blend science with magic.",
+            color: "text-amber-400",
+            border: "hover:border-amber-400/50",
+            branches: "Artificer, Philosopher, Arithmancer \u2192 Alchemist, Bombardier, Chronomancer, Astronomer, Automaton, Technomancer",
+          },
+          {
+            name: "Wildling",
+            desc: "Nature wielders who command plants, spirits, and beasts.",
+            color: "text-green-400",
+            border: "hover:border-green-400/50",
+            branches: "Herbalist, Shaman, Beastcaller \u2192 Blighter, Grove Keeper, Witch Doctor, Spiritwalker, Falconer, Shapeshifter",
+          },
+          {
+            name: "Wanderer",
+            desc: "Wilderness fighters specializing in magic defense. Unlocked by completing Story I.",
+            color: "text-cyan-400",
+            border: "hover:border-cyan-400/50",
+            branches: "Sentinel, Pathfinder \u2192 Bulwark, Aegis, Trailblazer, Survivalist",
+          },
         ].map((cls) => (
-          <div class="bg-dark-card border border-dark-border rounded-lg p-4 text-center hover:border-teal/50 transition-colors">
-            <h4 class:list={["font-heading font-bold text-lg mb-1", cls.color]}>{cls.name}</h4>
-            <p class="text-xs text-text-muted">{cls.desc}</p>
+          <div class:list={["bg-dark-card border border-dark-border rounded-xl p-6 transition-colors", cls.border]}>
+            <h4 class:list={["font-heading font-bold text-xl mb-2", cls.color]}>{cls.name}</h4>
+            <p class="text-sm text-text-muted leading-relaxed mb-3">{cls.desc}</p>
+            <p class="text-xs text-text-muted/70 leading-relaxed">
+              <span class="text-text-muted font-medium">Upgrades:</span> {cls.branches}
+            </p>
           </div>
         ))}
       </div>
-
-      <p class="text-center text-text-muted text-sm mt-8">
-        Each base class branches into 2-3 Tier 1 specializations, then 2-3 Tier 2 masteries.
-      </p>
     </div>
   </section>
 
