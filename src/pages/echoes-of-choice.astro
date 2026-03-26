@@ -9,10 +9,13 @@ const screenshots = [
   { src: "/images/screenshot-3.webp", alt: "Class selection" },
   { src: "/images/screenshot-4.webp", alt: "Narrative text" },
   { src: "/images/screenshot-5.webp", alt: "Branching choice" },
-  { src: "/images/screenshot-6.webp", alt: "Battle combat" },
+  { src: "/images/screenshot-6.webp", alt: "Battle action menu" },
   { src: "/images/screenshot-7.webp", alt: "Battle summary" },
   { src: "/images/screenshot-8.webp", alt: "Class upgrade" },
-  { src: "/images/screenshot-9.webp", alt: "Compendium" },
+  { src: "/images/screenshot-9.webp", alt: "Cinematic title card" },
+  { src: "/images/screenshot-10.webp", alt: "Compendium classes" },
+  { src: "/images/screenshot-11.webp", alt: "Battle action selection" },
+  { src: "/images/screenshot-12.webp", alt: "Character stats panel" },
 ];
 ---
 
@@ -42,6 +45,27 @@ const screenshots = [
         </svg>
         Wishlist on Steam
       </a>
+    </div>
+  </section>
+
+  <!-- Trailer -->
+  <section class="py-20 px-4 bg-dark-bg">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Watch the Trailer</h2>
+        <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
+      </div>
+      <div class="aspect-video rounded-xl overflow-hidden border border-dark-border shadow-2xl">
+        <video
+          class="w-full h-full"
+          controls
+          preload="metadata"
+          poster="/images/capsule.webp"
+        >
+          <source src="/videos/trailer.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
   </section>
 
