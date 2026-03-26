@@ -44,6 +44,15 @@ const siteTitle = title === "Home" ? "Wunderelf Studios" : `${title} | Wunderelf
     />
 
     <title>{siteTitle}</title>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0EMN4LFZWG"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0EMN4LFZWG');
+    </script>
   </head>
   <body class="min-h-screen flex flex-col">
     <Navbar />
@@ -51,5 +60,17 @@ const siteTitle = title === "Home" ? "Wunderelf Studios" : `${title} | Wunderelf
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('[data-track="steam_click"]');
+        if (link && typeof gtag !== 'undefined') {
+          gtag('event', 'steam_click', {
+            event_category: 'outbound',
+            event_label: link.dataset.location || 'unknown',
+            transport_type: 'beacon'
+          });
+        }
+      });
+    </script>
   </body>
 </html>
