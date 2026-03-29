@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Press Kit" description="Press resources for Echoes of Choice by Wunderelf Studios. Logos, screenshots, and fact sheet.">
+<BaseLayout title="Press Kit" description="Press resources for Parting Shadows by Wunderelf Studios. Logos, screenshots, and fact sheet.">
   <section class="py-24">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-16">
@@ -23,7 +23,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
           <div>
             <dt class="text-sm text-text-muted uppercase tracking-wider font-heading">Title</dt>
-            <dd class="text-text font-medium mt-1">Echoes of Choice</dd>
+            <dd class="text-text font-medium mt-1">Parting Shadows</dd>
           </div>
           <div>
             <dt class="text-sm text-text-muted uppercase tracking-wider font-heading">Genre</dt>
@@ -43,13 +43,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
           <div>
             <dt class="text-sm text-text-muted uppercase tracking-wider font-heading">Status</dt>
-            <dd class="text-text font-medium mt-1">In Development</dd>
+            <dd class="text-text font-medium mt-1">Coming Soon</dd>
           </div>
           <div>
             <dt class="text-sm text-text-muted uppercase tracking-wider font-heading">Release</dt>
-            <dd class="text-text font-medium mt-1">TBA</dd>
+            <dd class="text-text font-medium mt-1">April 2026</dd>
           </div>
         </dl>
+      </div>
+
+      <!-- Trailer -->
+      <div class="bg-dark-card border border-dark-border rounded-xl p-8 mb-12">
+        <h2 class="font-heading text-2xl font-bold mb-6 text-gold">Trailer</h2>
+        <div class="aspect-video rounded-lg overflow-hidden">
+          <iframe
+            class="w-full h-full"
+            src="https://www.youtube-nocookie.com/embed/QNsOH9avyJA"
+            title="Parting Shadows Official Trailer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
 
       <!-- Description -->
@@ -58,13 +73,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
         <h3 class="font-heading text-lg font-bold text-text mb-2">Short</h3>
         <p class="text-text-muted leading-relaxed mb-6">
-          Echoes of Choice is a narrative RPG with 56 classes, branching stories, and co-op multiplayer.
+          Parting Shadows is a narrative RPG with 56 classes, branching stories, and co-op multiplayer.
           Every choice shapes the world.
         </p>
 
         <h3 class="font-heading text-lg font-bold text-text mb-2">Long</h3>
         <p class="text-text-muted leading-relaxed">
-          Echoes of Choice is a turn-based narrative RPG where every decision echoes through the story.
+          Parting Shadows is a turn-based narrative RPG where every decision shapes the story.
           Build a party of three from 56 unique classes spanning six archetype trees, each with two tiers
           of specialization. Battle through three interconnected story campaigns with branching paths,
           unique enemies, and multiple endings. Play solo or bring friends along with local and online
@@ -104,8 +119,25 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </a>
         </div>
         <p class="text-xs text-text-muted mt-6">
-          These assets are free to use for press coverage and content creation related to Echoes of Choice.
+          These assets are free to use for press coverage and content creation related to Parting Shadows.
         </p>
+      </div>
+
+      <!-- Press Contact -->
+      <div class="bg-dark-card border border-dark-border rounded-xl p-8 mt-12">
+        <h2 class="font-heading text-2xl font-bold mb-4 text-gold">Press Contact</h2>
+        <p class="text-text-muted leading-relaxed mb-4">
+          For review keys, interview requests, or other press inquiries:
+        </p>
+        <a
+          href="mailto:wunderelfstudios@gmail.com"
+          class="inline-flex items-center gap-2 text-teal-light hover:text-teal transition-colors font-medium"
+        >
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          wunderelfstudios@gmail.com
+        </a>
       </div>
     </div>
   </section>
