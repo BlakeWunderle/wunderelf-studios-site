@@ -53,22 +53,34 @@ const screenshots = [
     </div>
   </section>
 
-  <!-- Trailer -->
+  <!-- Trailers -->
   <section class="py-20 px-4 bg-dark-bg">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-10">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Watch the Trailer</h2>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Watch the Trailers</h2>
         <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
       </div>
-      <div class="aspect-video rounded-xl overflow-hidden border border-dark-border shadow-2xl">
-        <iframe
-          class="w-full h-full"
-          src="https://www.youtube.com/embed/MBQrINcXLOI"
-          title="Parting Shadows — Official Trailer"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+      <div class="space-y-8">
+        <div class="aspect-video rounded-xl overflow-hidden border border-dark-border shadow-2xl">
+          <iframe
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/MBQrINcXLOI"
+            title="Parting Shadows — Official Trailer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="aspect-video rounded-xl overflow-hidden border border-dark-border shadow-2xl">
+          <iframe
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/skO189UYyTg"
+            title="Parting Shadows — Co-op Trailer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -227,10 +239,6 @@ const screenshots = [
       </div>
 
       <ScreenshotGallery images={screenshots} />
-
-      <p class="text-center text-text-muted text-sm mt-8">
-        Screenshots are from development. Final visuals may differ.
-      </p>
     </div>
   </section>
 
