@@ -26,34 +26,62 @@ const { images } = Astro.props;
 
 <!-- Lightbox -->
 <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-dark-bg/90 backdrop-blur-sm cursor-pointer">
-  <button class="absolute top-6 right-6 text-text-muted hover:text-white text-3xl" aria-label="Close">&times;</button>
+  <button class="absolute top-6 right-6 text-text-muted hover:text-white text-3xl z-10" aria-label="Close">&times;</button>
+  <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted hover:text-white text-4xl z-10 cursor-pointer p-2" aria-label="Previous image">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+  </button>
   <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] rounded-lg" />
+  <button id="lightbox-next" class="absolute right-14 top-1/2 -translate-y-1/2 text-text-muted hover:text-white text-4xl z-10 cursor-pointer p-2" aria-label="Next image">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+  </button>
 </div>
 
 <script>
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img") as HTMLImageElement;
+  const prevBtn = document.getElementById("lightbox-prev");
+  const nextBtn = document.getElementById("lightbox-next");
 
-  document.querySelectorAll(".screenshot-thumb").forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-      const src = (thumb as HTMLElement).dataset.full;
-      if (src && lightbox && lightboxImg) {
-        lightboxImg.src = src;
-        lightbox.classList.remove("hidden");
-        lightbox.classList.add("flex");
-      }
-    });
-  });
+  const thumbs = document.querySelectorAll(".screenshot-thumb");
+  const srcs: string[] = [];
+  thumbs.forEach((t) => srcs.push((t as HTMLElement).dataset.full || ""));
+  let currentIndex = 0;
 
-  lightbox?.addEventListener("click", () => {
-    lightbox.classList.add("hidden");
-    lightbox.classList.remove("flex");
-  });
+  function showImage(index: number) {
+    currentIndex = (index + srcs.length) % srcs.length;
+    if (lightboxImg) lightboxImg.src = srcs[currentIndex];
+  }
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && lightbox && !lightbox.classList.contains("hidden")) {
+  function openLightbox(index: number) {
+    if (lightbox && lightboxImg) {
+      showImage(index);
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+    }
+  }
+
+  function closeLightbox() {
+    if (lightbox) {
       lightbox.classList.add("hidden");
       lightbox.classList.remove("flex");
     }
+  }
+
+  thumbs.forEach((thumb, i) => {
+    thumb.addEventListener("click", () => openLightbox(i));
+  });
+
+  prevBtn?.addEventListener("click", (e) => { e.stopPropagation(); showImage(currentIndex - 1); });
+  nextBtn?.addEventListener("click", (e) => { e.stopPropagation(); showImage(currentIndex + 1); });
+
+  lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox || lightbox.classList.contains("hidden")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+    if (e.key === "ArrowRight") showImage(currentIndex + 1);
   });
 </script>

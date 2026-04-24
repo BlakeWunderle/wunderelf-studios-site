@@ -22,9 +22,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             </svg>
           </div>
           <h3 class="font-heading text-lg font-bold mb-2">Email</h3>
-          <a href="mailto:wunderelfstudios@gmail.com" class="text-teal-light hover:text-gold transition-colors text-sm">
+          <button id="copy-email" data-email="wunderelfstudios@gmail.com" class="text-teal-light hover:text-gold transition-colors text-sm cursor-pointer">
             wunderelfstudios@gmail.com
-          </a>
+          </button>
         </div>
 
         <div class="bg-dark-card border border-dark-border rounded-xl p-8 text-center">
@@ -109,4 +109,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
     </div>
   </section>
+
+  <!-- Toast notification -->
+  <div id="copy-toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-dark-card border border-teal rounded-lg px-6 py-3 text-sm text-text shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none z-50">
+    Email copied to clipboard
+  </div>
+
+  <script>
+    const copyBtn = document.getElementById("copy-email");
+    const toast = document.getElementById("copy-toast");
+    let hideTimeout: number;
+
+    copyBtn?.addEventListener("click", async () => {
+      const email = (copyBtn as HTMLElement).dataset.email;
+      if (!email) return;
+      await navigator.clipboard.writeText(email);
+      if (toast) {
+        clearTimeout(hideTimeout);
+        toast.classList.remove("opacity-0");
+        toast.classList.add("opacity-100");
+        hideTimeout = window.setTimeout(() => {
+          toast.classList.remove("opacity-100");
+          toast.classList.add("opacity-0");
+        }, 2000);
+      }
+    });
+  </script>
 </BaseLayout>
