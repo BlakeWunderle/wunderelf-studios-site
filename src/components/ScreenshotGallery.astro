@@ -26,7 +26,7 @@ const { images } = Astro.props;
 
 <!-- Lightbox -->
 <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-dark-bg/90 backdrop-blur-sm cursor-pointer">
-  <button class="absolute top-6 right-6 text-text-muted hover:text-white text-3xl z-10" aria-label="Close">&times;</button>
+  <button id="lightbox-close" class="absolute top-6 right-6 text-text-muted hover:text-white text-3xl z-10" aria-label="Close">&times;</button>
   <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted hover:text-white text-4xl z-10 cursor-pointer p-2" aria-label="Previous image">
     <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
   </button>
@@ -71,6 +71,7 @@ const { images } = Astro.props;
     thumb.addEventListener("click", () => openLightbox(i));
   });
 
+  document.getElementById("lightbox-close")?.addEventListener("click", (e) => { e.stopPropagation(); closeLightbox(); });
   prevBtn?.addEventListener("click", (e) => { e.stopPropagation(); showImage(currentIndex - 1); });
   nextBtn?.addEventListener("click", (e) => { e.stopPropagation(); showImage(currentIndex + 1); });
 
