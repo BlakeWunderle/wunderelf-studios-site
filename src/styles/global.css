@@ -1,32 +1,87 @@
 @import "tailwindcss";
 
-@theme {
-  --color-dark-bg: #0a0a0f;
-  --color-dark-surface: #12121a;
-  --color-dark-card: #1a1a26;
-  --color-dark-border: #2a2a3a;
-  --color-teal: #1a8a7e;
-  --color-teal-light: #22b8a8;
-  --color-teal-dark: #146b62;
-  --color-gold: #d4a843;
-  --color-gold-light: #e8c25a;
-  --color-text: #e8e8f0;
-  --color-text-muted: #9898a8;
-  --font-heading: "Oswald", sans-serif;
-  --font-body: "Inter", sans-serif;
+/*
+ * The same palette as the Wunderelf Sports app (Chalk's src/styles.css), so the studio site and the
+ * apps read as one family. Dark mode is a class on <html>, not a media query, because the visitor
+ * can pick a theme by hand and that choice has to beat the OS setting. BaseLayout's head script
+ * writes the class before first paint.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --ground: #eff2f5;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --border: #e3e7ec;
+  --border-strong: #cbd3dc;
+
+  --text: #0d1117;
+  --text-muted: #5b6672;
+  --text-faint: #616c79;
+
+  /* Light and dark use different accents on purpose, as in the app: bright gold on white fought
+     readability, so light mode uses a deep blue. */
+  --accent: #1e40af;
+  --accent-contrast: #ffffff;
+}
+
+.dark {
+  --ground: #0b0f14;
+  --surface: #151b23;
+  --surface-raised: #1c242e;
+  --border: #26303b;
+  --border-strong: #394654;
+
+  --text: #e8edf3;
+  --text-muted: #9aa6b4;
+  --text-faint: #848f9d;
+
+  --accent: #d4a952;
+  --accent-contrast: #221a08;
+}
+
+/* `inline` so the utilities reference the custom properties; without it the dark class changes nothing. */
+@theme inline {
+  --color-ground: var(--ground);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border-subtle: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+
+  --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--ground);
 }
 
 body {
-  background-color: var(--color-dark-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
+  background-color: var(--ground);
+  color: var(--text);
+  font-family: var(--font-sans);
 }
 
 ::selection {
-  background-color: var(--color-teal);
-  color: white;
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import FeatureCard from "../components/FeatureCard.astro";
+import ElfLogo from "../components/ElfLogo.astro";
 
 // Flip to true once workshop.wunderelfstudios.com is in production.
 const isLive = false;
@@ -32,18 +33,17 @@ const steps = [
 >
   <!-- Hero -->
   <section class="relative py-24 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-dark-bg via-dark-surface to-dark-bg" />
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      <img src="/images/products/elf-logo.webp" alt="" class="w-28 h-28 mx-auto mb-8 rounded-full ring-2 ring-gold/70" />
-      <h1 class="font-heading text-5xl md:text-6xl font-bold mb-4">
-        Wunderelf <span class="text-gold">Workshop</span>
+      <div class="flex justify-center mb-8"><ElfLogo class="w-28 h-28" /></div>
+      <h1 class="tracking-tight text-5xl md:text-6xl font-bold mb-4">
+        Wunderelf <span class="text-accent">Workshop</span>
       </h1>
       <p class="text-xl text-text-muted mb-8 max-w-2xl mx-auto leading-relaxed">
         Turn your team's documents into slide decks and reports where every claim cites its source and is fact-checked.
       </p>
       <a
         href={ctaHref}
-        class="inline-flex items-center justify-center px-8 py-3 bg-gold hover:bg-gold-light text-dark-bg font-heading font-bold text-lg rounded-lg transition-colors"
+        class="inline-flex items-center justify-center px-8 py-3 bg-accent hover:opacity-90 text-accent-contrast tracking-tight font-bold text-lg rounded-lg transition-colors"
       >
         {ctaLabel}
       </a>
@@ -54,21 +54,20 @@ const steps = [
   </section>
 
   <!-- How it works -->
-  <section class="py-24 bg-dark-surface">
+  <section class="py-24 border-y border-border-subtle bg-surface-raised/40">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
-        <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
+        <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
       </div>
 
       <ol class="space-y-8">
         {steps.map((step, i) => (
           <li class="flex gap-6">
-            <div class="shrink-0 w-12 h-12 bg-dark-card border border-dark-border rounded-lg flex items-center justify-center font-heading text-xl font-bold text-teal-light">
+            <div class="shrink-0 w-12 h-12 bg-surface border border-border-subtle rounded-lg flex items-center justify-center tracking-tight text-xl font-bold text-accent">
               {i + 1}
             </div>
             <div>
-              <h3 class="font-heading text-xl font-bold mb-1 text-text">{step.title}</h3>
+              <h3 class="tracking-tight text-xl font-bold mb-1 text-text">{step.title}</h3>
               <p class="text-text-muted leading-relaxed">{step.text}</p>
             </div>
           </li>
@@ -81,8 +80,7 @@ const steps = [
   <section class="py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">What You Get</h2>
-        <div class="w-16 h-1 bg-teal mx-auto rounded-full" />
+        <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-4">What You Get</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -115,11 +113,10 @@ const steps = [
   </section>
 
   <!-- Pricing -->
-  <section class="py-24 bg-dark-surface">
+  <section class="py-24 border-y border-border-subtle bg-surface-raised/40">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Plans and Prices</h2>
-        <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
+        <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-4">Plans and Prices</h2>
         <p class="text-text-muted mt-6 max-w-2xl mx-auto leading-relaxed">
           A document is one chat, counted once at its first build. Revisions are included. Prices are in US dollars, billed monthly, with tax added at checkout.
         </p>
@@ -127,10 +124,10 @@ const steps = [
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {plans.map((plan) => (
-          <div class="bg-dark-card border border-dark-border rounded-xl p-6 flex flex-col">
-            <h3 class="font-heading text-xl font-bold text-text mb-2">{plan.name}</h3>
+          <div class="bg-surface border border-border-subtle rounded-xl p-6 flex flex-col">
+            <h3 class="tracking-tight text-xl font-bold text-text mb-2">{plan.name}</h3>
             <p class="mb-4">
-              <span class="font-heading text-4xl font-bold text-gold">{plan.price}</span>
+              <span class="tracking-tight text-4xl font-bold text-accent">{plan.price}</span>
               <span class="text-sm text-text-muted"> {plan.per}</span>
             </p>
             <p class="text-sm text-text mb-2">{plan.documents}</p>
@@ -156,13 +153,13 @@ const steps = [
   <!-- CTA -->
   <section class="py-24">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6">Questions?</h2>
+      <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-6">Questions?</h2>
       <p class="text-text-muted mb-10 text-lg">
         Ask about plans, early access, or whether the Workshop fits your team's work.
       </p>
       <a
         href={ctaHref}
-        class="inline-flex items-center gap-3 px-10 py-4 bg-gold hover:bg-gold-light text-dark-bg font-heading font-bold text-xl rounded-lg transition-colors"
+        class="inline-flex items-center gap-3 px-10 py-4 bg-accent hover:opacity-90 text-accent-contrast tracking-tight font-bold text-xl rounded-lg transition-colors"
       >
         {ctaLabel}
       </a>

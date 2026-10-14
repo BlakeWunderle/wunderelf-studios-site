@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import FeatureCard from "../components/FeatureCard.astro";
+import ElfLogo from "../components/ElfLogo.astro";
 
 const products = [
   {
@@ -31,7 +32,7 @@ const products = [
     status: "Launching soon",
     pitch:
       "Turns your team's documents into slide decks and reports where every claim cites its source and is fact-checked.",
-    image: "/images/products/elf-logo.webp",
+    image: "",
     isLogo: true,
     href: "/wunderelf-workshop",
   },
@@ -41,13 +42,11 @@ const products = [
 <BaseLayout title="Home">
   <!-- Hero -->
   <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-dark-bg via-dark-surface to-dark-bg" />
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--color-teal-dark)_0%,_transparent_70%)] opacity-20" />
 
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      <img src="/images/wunderelf-logo.webp" alt="Wunderelf Studios" class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 rounded-2xl" />
-      <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6 leading-tight">
-        <span class="text-teal-light">Wunderelf</span> Studios
+      <div class="flex justify-center mb-8"><ElfLogo class="w-32 h-32 md:w-40 md:h-40" /></div>
+      <h1 class="tracking-tight text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        <span class="text-accent">Wunderelf</span> Studios
       </h1>
       <p class="text-xl md:text-2xl text-text-muted mb-10 max-w-2xl mx-auto leading-relaxed">
         An independent studio making games and apps.
@@ -55,13 +54,13 @@ const products = [
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="#products"
-          class="inline-flex items-center justify-center px-8 py-3 bg-teal hover:bg-teal-light text-white font-heading font-bold text-lg rounded-lg transition-colors"
+          class="inline-flex items-center justify-center px-8 py-3 bg-accent hover:opacity-90 text-accent-contrast tracking-tight font-bold text-lg rounded-lg transition-colors"
         >
           See What We Make
         </a>
         <a
           href="/about"
-          class="inline-flex items-center justify-center px-8 py-3 border border-dark-border hover:border-teal text-text-muted hover:text-teal-light font-heading font-bold text-lg rounded-lg transition-colors"
+          class="inline-flex items-center justify-center px-8 py-3 border border-border-subtle hover:border-border-strong text-text-muted hover:text-accent tracking-tight font-bold text-lg rounded-lg transition-colors"
         >
           About the Studio
         </a>
@@ -70,41 +69,40 @@ const products = [
   </section>
 
   <!-- Products -->
-  <section id="products" class="py-24 bg-dark-surface scroll-mt-16">
+  <section id="products" class="py-24 border-y border-border-subtle bg-surface-raised/40 scroll-mt-14">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">What We Make</h2>
-        <div class="w-16 h-1 bg-teal mx-auto rounded-full" />
+        <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-4">What We Make</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {products.map((p) => (
           <a
             href={p.href}
-            class="group flex flex-col bg-dark-card border border-dark-border rounded-xl overflow-hidden hover:border-teal/50 transition-colors"
+            class="group flex flex-col bg-surface border border-border-subtle rounded-xl overflow-hidden hover:border-border-strong transition-colors"
           >
-            <div class="aspect-video bg-black overflow-hidden flex items-center justify-center">
-              <img
-                src={p.image}
-                alt=""
-                class:list={[
-                  "group-hover:scale-105 transition-transform duration-300",
-                  p.isLogo
-                    ? "h-3/4 rounded-full ring-2 ring-gold/70"
-                    : p.fit === "contain"
-                      ? "w-full h-full object-contain"
-                      : "w-full h-full object-cover",
-                ]}
-              />
+            <div class:list={["aspect-video overflow-hidden flex items-center justify-center border-b border-border-subtle", p.isLogo ? "bg-ground" : "bg-black"]}>
+              {p.isLogo ? (
+                <ElfLogo class="h-3/4 w-auto aspect-square" />
+              ) : (
+                <img
+                  src={p.image}
+                  alt=""
+                  class:list={[
+                    "w-full h-full",
+                    p.fit === "contain" ? "object-contain" : "object-cover",
+                  ]}
+                />
+              )}
             </div>
             <div class="flex flex-col flex-1 p-6">
               <div class="flex items-center justify-between gap-3 mb-2">
-                <span class="text-xs font-heading uppercase tracking-wider text-teal-light">{p.kind}</span>
-                <span class="text-xs text-text-muted text-right">{p.status}</span>
+                <span class="text-[11px] font-semibold uppercase tracking-wide text-text-faint">{p.kind}</span>
+                <span class="text-[11px] text-text-faint text-right">{p.status}</span>
               </div>
-              <h3 class="font-heading text-2xl font-bold mb-3 text-gold">{p.name}</h3>
+              <h3 class="tracking-tight text-xl font-bold mb-2 text-text">{p.name}</h3>
               <p class="text-sm text-text-muted leading-relaxed flex-1">{p.pitch}</p>
-              <span class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-teal-light group-hover:text-gold transition-colors">
+              <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent">
                 Learn more
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -121,8 +119,7 @@ const products = [
   <section class="py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">What We Believe</h2>
-        <div class="w-16 h-1 bg-teal mx-auto rounded-full" />
+        <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-4">What We Believe</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">

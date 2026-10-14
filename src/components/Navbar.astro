@@ -1,28 +1,29 @@
 ---
 import { navLinks } from "../data/nav";
+import ElfLogo from "./ElfLogo.astro";
 
 const currentPath = Astro.url.pathname;
+const isCurrent = (href: string) =>
+  currentPath === href || (href !== "/" && currentPath.startsWith(href));
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-dark-bg/90 backdrop-blur-md border-b border-dark-border">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-3 group">
-      <img src="/images/wunderelf-logo.webp" alt="Wunderelf Studios" class="w-12 h-12 rounded-lg" />
-      <span class="font-heading text-2xl font-bold text-teal-light group-hover:text-gold transition-colors">
-        Wunderelf Studios
-      </span>
+<!-- Shaped like the Wunderelf Sports app header: one raised row, the round elf, the wordmark beside it. -->
+<nav class="fixed top-0 left-0 right-0 z-50 border-b border-border-subtle bg-surface-raised">
+  <div class="max-w-6xl mx-auto h-14 px-4 flex items-center justify-between gap-4">
+    <a href="/" class="-ml-1 flex shrink-0 items-center gap-2 rounded-lg px-1 text-base font-bold tracking-tight text-text hover:text-accent transition-colors" aria-label="Wunderelf Studios home">
+      <ElfLogo class="h-10 w-10" />
+      <span>Wunderelf Studios</span>
     </a>
 
     <!-- Desktop nav -->
-    <div class="hidden lg:flex items-center gap-6">
+    <div class="hidden lg:flex items-center gap-1">
       {navLinks.map((link) => (
         <a
           href={link.href}
+          aria-current={isCurrent(link.href) ? "page" : undefined}
           class:list={[
-            "text-sm font-medium transition-colors hover:text-teal-light",
-            currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
-              ? "text-teal-light"
-              : "text-text-muted",
+            "rounded-lg px-3 py-2 text-sm transition-colors",
+            isCurrent(link.href) ? "font-semibold text-accent" : "font-medium text-text-muted hover:text-text",
           ]}
         >
           {link.label}
@@ -33,26 +34,28 @@ const currentPath = Astro.url.pathname;
     <!-- Mobile menu button -->
     <button
       id="mobile-menu-btn"
-      class="lg:hidden text-text-muted hover:text-teal-light transition-colors"
-      aria-label="Toggle menu"
+      type="button"
+      class="lg:hidden flex h-11 w-11 items-center justify-center rounded-full text-text-muted hover:text-text transition-colors"
+      aria-label="Menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
   </div>
 
   <!-- Mobile nav -->
-  <div id="mobile-menu" class="lg:hidden border-t border-dark-border bg-dark-bg/95 backdrop-blur-md overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
-    <div class="px-6 py-4 flex flex-col gap-4">
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-border-subtle bg-surface-raised">
+    <div class="px-4 py-2 flex flex-col">
       {navLinks.map((link) => (
         <a
           href={link.href}
+          aria-current={isCurrent(link.href) ? "page" : undefined}
           class:list={[
-            "text-sm font-medium transition-colors hover:text-teal-light",
-            currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
-              ? "text-teal-light"
-              : "text-text-muted",
+            "rounded-lg px-3 py-3 text-sm transition-colors",
+            isCurrent(link.href) ? "font-semibold text-accent" : "font-medium text-text-muted hover:text-text",
           ]}
         >
           {link.label}
@@ -66,12 +69,7 @@ const currentPath = Astro.url.pathname;
   const btn = document.getElementById("mobile-menu-btn");
   const menu = document.getElementById("mobile-menu");
   btn?.addEventListener("click", () => {
-    if (menu) {
-      const isOpen = menu.classList.contains("max-h-96");
-      menu.classList.toggle("max-h-0", isOpen);
-      menu.classList.toggle("opacity-0", isOpen);
-      menu.classList.toggle("max-h-96", !isOpen);
-      menu.classList.toggle("opacity-100", !isOpen);
-    }
+    const open = menu?.classList.toggle("hidden") === false;
+    btn.setAttribute("aria-expanded", String(open));
   });
 </script>

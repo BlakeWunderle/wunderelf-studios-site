@@ -14,7 +14,7 @@ const { images, portrait = false } = Astro.props;
 ]}>
   {images.map((img) => (
     <button
-      class="screenshot-thumb group relative overflow-hidden rounded-lg border border-dark-border hover:border-teal/50 transition-colors cursor-pointer"
+      class="screenshot-thumb group relative overflow-hidden rounded-lg border border-border-subtle hover:border-border-strong transition-colors cursor-pointer"
       data-full={img.src}
       aria-label={`View full: ${img.alt}`}
     >
@@ -27,19 +27,19 @@ const { images, portrait = false } = Astro.props;
         ]}
         loading="lazy"
       />
-      <div class="absolute inset-0 bg-dark-bg/0 group-hover:bg-dark-bg/20 transition-colors" />
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
     </button>
   ))}
 </div>
 
 <!-- Lightbox -->
-<div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-dark-bg/90 backdrop-blur-sm cursor-pointer">
-  <button id="lightbox-close" class="absolute top-6 right-6 text-text-muted hover:text-white text-3xl z-10" aria-label="Close">&times;</button>
-  <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted hover:text-white text-4xl z-10 cursor-pointer p-2" aria-label="Previous image">
+<div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm cursor-pointer">
+  <button id="lightbox-close" class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl z-10" aria-label="Close">&times;</button>
+  <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-4xl z-10 cursor-pointer p-2" aria-label="Previous image">
     <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
   </button>
   <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] rounded-lg" />
-  <button id="lightbox-next" class="absolute right-14 top-1/2 -translate-y-1/2 text-text-muted hover:text-white text-4xl z-10 cursor-pointer p-2" aria-label="Next image">
+  <button id="lightbox-next" class="absolute right-14 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-4xl z-10 cursor-pointer p-2" aria-label="Next image">
     <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
   </button>
 </div>

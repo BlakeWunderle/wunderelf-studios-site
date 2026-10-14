@@ -1,0 +1,23 @@
+---
+// The elf from the Wunderelf apps: autumn leaves on white for light mode, stars on black for dark.
+// Both are in the page and the `dark` class picks one, so the logo never flashes the wrong theme.
+interface Props {
+  class?: string;
+  alt?: string;
+}
+
+const { class: size = "h-10 w-10", alt = "" } = Astro.props;
+---
+
+<img
+  src="/images/products/elf-logo-light.webp"
+  alt={alt}
+  aria-hidden={alt ? undefined : "true"}
+  class:list={[size, "shrink-0 rounded-full object-cover ring-2 ring-amber-400/50 shadow-md dark:hidden"]}
+/>
+<img
+  src="/images/products/elf-logo.webp"
+  alt={alt}
+  aria-hidden={alt ? undefined : "true"}
+  class:list={[size, "hidden shrink-0 rounded-full object-cover ring-2 ring-amber-400/25 shadow-md dark:block"]}
+/>

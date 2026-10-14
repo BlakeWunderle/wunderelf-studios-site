@@ -6,8 +6,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <section class="py-24">
     <div class="max-w-3xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
-        <div class="w-16 h-1 bg-teal mx-auto rounded-full" />
+        <h1 class="tracking-tight text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
         <p class="text-text-muted mt-6 max-w-xl mx-auto">
           Questions about Parting Shadows, Wunderelf Sports or Wunderelf Workshop, press requests, or a project you'd like to work on together: we'd love to hear from you.
         </p>
@@ -15,34 +14,34 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
       <!-- Contact methods -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
-        <div class="bg-dark-card border border-dark-border rounded-xl p-8 text-center">
+        <div class="bg-surface border border-border-subtle rounded-xl p-8 text-center">
           <div class="flex justify-center mb-4">
             <svg class="w-8 h-8 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
-          <h3 class="font-heading text-lg font-bold mb-2">General Inquiries</h3>
-          <button id="copy-email" data-email="wunderelfstudios@gmail.com" class="text-teal-light hover:text-gold transition-colors text-sm cursor-pointer">
+          <h3 class="tracking-tight text-lg font-bold mb-2">General Inquiries</h3>
+          <button id="copy-email" data-email="wunderelfstudios@gmail.com" class="text-accent hover:text-accent transition-colors text-sm cursor-pointer">
             wunderelfstudios@gmail.com
           </button>
         </div>
 
-        <div class="bg-dark-card border border-dark-border rounded-xl p-8 text-center">
+        <div class="bg-surface border border-border-subtle rounded-xl p-8 text-center">
           <div class="flex justify-center mb-4">
             <svg class="w-8 h-8 text-text-muted" viewBox="0 0 24 24" fill="currentColor">
               <path d="M11.979 0C5.678 0 .511 4.86.022 10.94l6.432 2.658a3.387 3.387 0 0 1 1.912-.588c.063 0 .125.002.188.006l2.861-4.142V8.77c0-2.427 1.975-4.4 4.404-4.4 2.427 0 4.402 1.975 4.402 4.404 0 2.427-1.975 4.4-4.402 4.4h-.1l-4.076 2.91c0 .05.004.1.004.15 0 1.822-1.48 3.303-3.303 3.303a3.308 3.308 0 0 1-3.257-2.748L.596 13.822C1.87 19.558 6.44 24 11.979 24c6.627 0 12-5.373 12-12S18.606 0 11.979 0zM7.54 18.21l-1.473-.61a2.48 2.48 0 0 0 1.348 1.349 2.478 2.478 0 0 0 3.256-3.098 2.478 2.478 0 0 0-3.131-1.641zm8.277-9.44a2.94 2.94 0 0 1-2.938-2.938 2.94 2.94 0 0 1 2.938-2.938 2.94 2.94 0 0 1 2.937 2.938 2.94 2.94 0 0 1-2.937 2.937z"/>
             </svg>
           </div>
-          <h3 class="font-heading text-lg font-bold mb-2">Steam</h3>
-          <a href="https://store.steampowered.com/app/4545380/Parting_Shadows/" target="_blank" rel="noopener noreferrer" class="text-teal-light hover:text-gold transition-colors text-sm">
+          <h3 class="tracking-tight text-lg font-bold mb-2">Steam</h3>
+          <a href="https://store.steampowered.com/app/4545380/Parting_Shadows/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent transition-colors text-sm">
             Parting Shadows on Steam
           </a>
         </div>
       </div>
 
       <!-- Contact form (works with Netlify Forms) -->
-      <div class="bg-dark-card border border-dark-border rounded-xl p-8">
-        <h2 class="font-heading text-2xl font-bold mb-6 text-center">Send a Message</h2>
+      <div class="bg-surface border border-border-subtle rounded-xl p-8">
+        <h2 class="tracking-tight text-2xl font-bold mb-6 text-center">Send a Message</h2>
 
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
           <input type="hidden" name="form-name" value="contact" />
@@ -56,7 +55,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 id="name"
                 name="name"
                 required
-                class="w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-text placeholder:text-text-muted/50 focus:outline-none focus:border-teal transition-colors"
+                class="w-full px-4 py-3 bg-surface-raised border border-border-subtle rounded-lg text-text placeholder:text-text-faint focus:outline-none focus:border-accent transition-colors"
                 placeholder="Your name"
               />
             </div>
@@ -67,7 +66,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 id="email"
                 name="email"
                 required
-                class="w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-text placeholder:text-text-muted/50 focus:outline-none focus:border-teal transition-colors"
+                class="w-full px-4 py-3 bg-surface-raised border border-border-subtle rounded-lg text-text placeholder:text-text-faint focus:outline-none focus:border-accent transition-colors"
                 placeholder="you@example.com"
               />
             </div>
@@ -78,7 +77,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <select
               id="subject"
               name="subject"
-              class="w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-text focus:outline-none focus:border-teal transition-colors"
+              class="w-full px-4 py-3 bg-surface-raised border border-border-subtle rounded-lg text-text focus:outline-none focus:border-accent transition-colors"
             >
               <option value="general">General inquiry</option>
               <option value="work">Work together</option>
@@ -97,14 +96,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               name="message"
               rows="5"
               required
-              class="w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-text placeholder:text-text-muted/50 focus:outline-none focus:border-teal transition-colors resize-y"
+              class="w-full px-4 py-3 bg-surface-raised border border-border-subtle rounded-lg text-text placeholder:text-text-faint focus:outline-none focus:border-accent transition-colors resize-y"
               placeholder="What's on your mind?"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            class="w-full sm:w-auto px-8 py-3 bg-teal hover:bg-teal-light text-white font-heading font-bold text-lg rounded-lg transition-colors cursor-pointer"
+            class="w-full sm:w-auto px-8 py-3 bg-accent hover:opacity-90 text-accent-contrast tracking-tight font-bold text-lg rounded-lg transition-colors cursor-pointer"
           >
             Send Message
           </button>
@@ -114,7 +113,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </section>
 
   <!-- Toast notification -->
-  <div id="copy-toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-dark-card border border-teal rounded-lg px-6 py-3 text-sm text-text shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none z-50">
+  <div id="copy-toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-surface border border-border-strong rounded-lg px-6 py-3 text-sm text-text shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none z-50">
     Email copied to clipboard
   </div>
 

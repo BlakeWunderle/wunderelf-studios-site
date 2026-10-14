@@ -25,23 +25,23 @@ const screenshots = [
   description="A narrative RPG of branching paths and shadowed choices. 56 classes, three story campaigns, and co-op play."
 >
   <!-- Hero -->
-  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden text-white">
     <img src="/images/hero.png" alt="" class="absolute inset-0 w-full h-full object-cover" />
-    <div class="absolute inset-0 bg-dark-bg/70" />
-    <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-dark-bg/80" />
+    <div class="absolute inset-0 bg-black/65" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/60" />
 
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      <h1 class="font-heading text-5xl md:text-7xl font-bold mb-4">
-        Parting <span class="text-gold">Shadows</span>
+      <h1 class="tracking-tight text-5xl md:text-7xl font-bold mb-4">
+        Parting <span class="text-[#d4a952]">Shadows</span>
       </h1>
-      <p class="text-xl text-text-muted mb-8 max-w-xl mx-auto">
+      <p class="text-xl text-white/80 mb-8 max-w-xl mx-auto">
         Every decision shapes the world. Every shadow hides a story.
       </p>
       <a
         href="https://store.steampowered.com/app/4545380/Parting_Shadows/?utm_source=wunderelf&utm_medium=website&utm_campaign=steam_button&utm_content=hero"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-3 px-8 py-4 bg-[#1b2838] hover:bg-[#2a475e] text-white font-heading font-bold text-lg rounded-lg transition-colors border border-[#2a475e]"
+        class="inline-flex items-center gap-3 px-8 py-4 bg-[#1b2838] hover:bg-[#2a475e] text-white tracking-tight font-bold text-lg rounded-lg transition-colors border border-[#2a475e]"
         data-track="steam_click"
         data-location="hero"
       >
@@ -54,14 +54,13 @@ const screenshots = [
   </section>
 
   <!-- Trailers -->
-  <section class="py-20 px-4 bg-dark-bg">
+  <section class="py-20 px-4">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-10">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Watch the Trailers</h2>
-        <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
+        <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-4">Watch the Trailers</h2>
       </div>
       <div class="space-y-8">
-        <div class="aspect-video rounded-xl overflow-hidden border border-dark-border shadow-2xl">
+        <div class="aspect-video rounded-xl overflow-hidden border border-border-subtle shadow-2xl">
           <iframe
             class="w-full h-full"
             src="https://www.youtube.com/embed/MBQrINcXLOI"
@@ -71,7 +70,7 @@ const screenshots = [
             allowfullscreen
           ></iframe>
         </div>
-        <div class="aspect-video rounded-xl overflow-hidden border border-dark-border shadow-2xl">
+        <div class="aspect-video rounded-xl overflow-hidden border border-border-subtle shadow-2xl">
           <iframe
             class="w-full h-full"
             src="https://www.youtube.com/embed/skO189UYyTg"
@@ -86,11 +85,10 @@ const screenshots = [
   </section>
 
   <!-- Features -->
-  <section class="py-24 bg-dark-surface">
+  <section class="py-24 border-y border-border-subtle bg-surface-raised/40">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Features</h2>
-        <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
+        <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-4">Features</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -126,8 +124,7 @@ const screenshots = [
   <section class="py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">The Class System</h2>
-        <div class="w-16 h-1 bg-teal mx-auto rounded-full" />
+        <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-4">The Class System</h2>
         <p class="text-text-muted mt-6 max-w-2xl mx-auto leading-relaxed">
           Start as one of six base classes and evolve through two tiers of specialization.
           Your class choice shapes your combat role, abilities, and how you experience each story.
@@ -139,50 +136,50 @@ const screenshots = [
           {
             name: "Squire",
             desc: "Physical fighters who master weapons and martial arts.",
-            color: "text-red-400",
+            color: "text-red-700 dark:text-red-400",
             border: "hover:border-red-400/50",
             branches: "Duelist, Ranger, Martial Artist \u2192 Cavalry, Dragoon, Mercenary, Hunter, Ninja, Monk",
           },
           {
             name: "Mage",
             desc: "Arcane casters wielding elemental and divine magic.",
-            color: "text-blue-400",
+            color: "text-blue-700 dark:text-blue-400",
             border: "hover:border-blue-400/50",
             branches: "Invoker, Acolyte \u2192 Infernalist, Tidecaller, Tempest, Paladin, Priest, Warlock",
           },
           {
             name: "Entertainer",
             desc: "Performers who inspire allies and demoralize enemies.",
-            color: "text-purple-400",
+            color: "text-purple-700 dark:text-purple-400",
             border: "hover:border-purple-400/50",
             branches: "Bard, Dervish, Orator \u2192 Warcrier, Minstrel, Illusionist, Mime, Laureate, Elegist",
           },
           {
             name: "Tinker",
             desc: "Inventors and academics who blend science with magic.",
-            color: "text-amber-400",
+            color: "text-amber-700 dark:text-amber-400",
             border: "hover:border-amber-400/50",
             branches: "Artificer, Philosopher, Arithmancer \u2192 Alchemist, Bombardier, Chronomancer, Astronomer, Automaton, Technomancer",
           },
           {
             name: "Wildling",
             desc: "Nature wielders who command plants, spirits, and beasts.",
-            color: "text-green-400",
+            color: "text-green-700 dark:text-green-400",
             border: "hover:border-green-400/50",
             branches: "Herbalist, Shaman, Beastcaller \u2192 Blighter, Grove Keeper, Witch Doctor, Spiritwalker, Falconer, Shapeshifter",
           },
           {
             name: "Wanderer",
             desc: "Wilderness fighters specializing in magic defense. Unlocked by completing Story I.",
-            color: "text-cyan-400",
+            color: "text-cyan-700 dark:text-cyan-400",
             border: "hover:border-cyan-400/50",
             branches: "Sentinel, Pathfinder \u2192 Bulwark, Aegis, Trailblazer, Survivalist",
           },
         ].map((cls) => (
-          <div class:list={["bg-dark-card border border-dark-border rounded-xl p-6 transition-colors", cls.border]}>
-            <h4 class:list={["font-heading font-bold text-xl mb-2", cls.color]}>{cls.name}</h4>
+          <div class:list={["bg-surface border border-border-subtle rounded-xl p-6 transition-colors", cls.border]}>
+            <h4 class:list={["tracking-tight font-bold text-xl mb-2", cls.color]}>{cls.name}</h4>
             <p class="text-sm text-text-muted leading-relaxed mb-3">{cls.desc}</p>
-            <p class="text-xs text-text-muted/70 leading-relaxed">
+            <p class="text-xs text-text-faint leading-relaxed">
               <span class="text-text-muted font-medium">Upgrades:</span> {cls.branches}
             </p>
           </div>
@@ -192,35 +189,34 @@ const screenshots = [
   </section>
 
   <!-- Stories -->
-  <section class="py-24 bg-dark-surface">
+  <section class="py-24 border-y border-border-subtle bg-surface-raised/40">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Three Stories. Your Choices.</h2>
-        <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
+        <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-4">Three Stories. Your Choices.</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-dark-card border border-dark-border rounded-xl p-8 hover:border-teal/50 transition-colors">
-          <div class="text-sm font-heading text-teal-light uppercase tracking-wider mb-2">Story I</div>
-          <h3 class="font-heading text-2xl font-bold mb-3">The Stranger's Shadow</h3>
+        <div class="bg-surface border border-border-subtle rounded-xl p-8 hover:border-border-strong transition-colors">
+          <div class="text-sm text-accent uppercase tracking-wider mb-2">Story I</div>
+          <h3 class="tracking-tight text-2xl font-bold mb-3">The Stranger's Shadow</h3>
           <p class="text-sm text-text-muted leading-relaxed">
             A mysterious stranger offers your party a quest. As you journey through cities and forests,
             the line between ally and enemy blurs. Nothing is as it seems.
           </p>
         </div>
 
-        <div class="bg-dark-card border border-dark-border rounded-xl p-8 hover:border-teal/50 transition-colors">
-          <div class="text-sm font-heading text-teal-light uppercase tracking-wider mb-2">Story II</div>
-          <h3 class="font-heading text-2xl font-bold mb-3">Echoes in the Dark</h3>
+        <div class="bg-surface border border-border-subtle rounded-xl p-8 hover:border-border-strong transition-colors">
+          <div class="text-sm text-accent uppercase tracking-wider mb-2">Story II</div>
+          <h3 class="tracking-tight text-2xl font-bold mb-3">Echoes in the Dark</h3>
           <p class="text-sm text-text-muted leading-relaxed">
             You awaken in a cave with no memory. As you piece together fragments of the past,
             a companion named Sera holds secrets that could change everything.
           </p>
         </div>
 
-        <div class="bg-dark-card border border-dark-border rounded-xl p-8 hover:border-teal/50 transition-colors">
-          <div class="text-sm font-heading text-teal-light uppercase tracking-wider mb-2">Story III</div>
-          <h3 class="font-heading text-2xl font-bold mb-3">The Woven Night</h3>
+        <div class="bg-surface border border-border-subtle rounded-xl p-8 hover:border-border-strong transition-colors">
+          <div class="text-sm text-accent uppercase tracking-wider mb-2">Story III</div>
+          <h3 class="tracking-tight text-2xl font-bold mb-3">The Woven Night</h3>
           <p class="text-sm text-text-muted leading-relaxed">
             Shared dreams bind a town in mystery. As nightmares grow stronger,
             a cult's conspiracy threatens to unravel the boundary between dream and reality.
@@ -234,8 +230,7 @@ const screenshots = [
   <section class="py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Screenshots</h2>
-        <div class="w-16 h-1 bg-teal mx-auto rounded-full" />
+        <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-4">Screenshots</h2>
       </div>
 
       <ScreenshotGallery images={screenshots} />
@@ -243,9 +238,9 @@ const screenshots = [
   </section>
 
   <!-- CTA -->
-  <section class="py-24 bg-dark-surface">
+  <section class="py-24 border-y border-border-subtle bg-surface-raised/40">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6">Ready to Choose Your Path?</h2>
+      <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-6">Ready to Choose Your Path?</h2>
       <p class="text-text-muted mb-10 text-lg">
         Parting Shadows is out now on Steam for PC, Mac and Linux, with solo play and co-op for up to three players.
       </p>
@@ -253,7 +248,7 @@ const screenshots = [
         href="https://store.steampowered.com/app/4545380/Parting_Shadows/?utm_source=wunderelf&utm_medium=website&utm_campaign=steam_button&utm_content=cta"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-3 px-10 py-4 bg-gold hover:bg-gold-light text-dark-bg font-heading font-bold text-xl rounded-lg transition-colors"
+        class="inline-flex items-center gap-3 px-10 py-4 bg-accent hover:opacity-90 text-accent-contrast tracking-tight font-bold text-xl rounded-lg transition-colors"
         data-track="steam_click"
         data-location="cta"
       >

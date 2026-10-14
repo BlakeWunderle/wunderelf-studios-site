@@ -47,8 +47,7 @@ const skillGroups = [
   <section class="py-24">
     <div class="max-w-3xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4">About <span class="text-teal-light">Wunderelf</span> Studios</h1>
-        <div class="w-16 h-1 bg-teal mx-auto rounded-full" />
+        <h1 class="tracking-tight text-4xl md:text-5xl font-bold mb-4">About <span class="text-accent">Wunderelf</span> Studios</h1>
       </div>
 
       <div class="space-y-8 text-text-muted leading-relaxed text-lg">
@@ -65,11 +64,11 @@ const skillGroups = [
         </p>
 
         <p>
-          The studio's first release, <a href="/parting-shadows" class="text-teal-light hover:text-gold transition-colors font-medium">Parting Shadows</a>,
+          The studio's first release, <a href="/parting-shadows" class="text-accent hover:text-accent transition-colors font-medium">Parting Shadows</a>,
           grew from a simple console app into a full RPG on Steam, drawing on years of weekly D&amp;D sessions.
-          <a href="/wunderelf-sports" class="text-teal-light hover:text-gold transition-colors font-medium">Wunderelf Sports</a>
+          <a href="/wunderelf-sports" class="text-accent hover:text-accent transition-colors font-medium">Wunderelf Sports</a>
           came next: pick'em pools and live scores on the web, iPhone and Android.
-          <a href="/wunderelf-workshop" class="text-teal-light hover:text-gold transition-colors font-medium">Wunderelf Workshop</a>,
+          <a href="/wunderelf-workshop" class="text-accent hover:text-accent transition-colors font-medium">Wunderelf Workshop</a>,
           which turns a team's documents into cited, fact-checked decks and reports, is launching soon.
         </p>
 
@@ -81,21 +80,20 @@ const skillGroups = [
   </section>
 
   <!-- Skills -->
-  <section class="py-24 bg-dark-surface">
+  <section class="py-24 border-y border-border-subtle bg-surface-raised/40">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl font-bold mb-4">What We Work With</h2>
-        <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
+        <h2 class="tracking-tight text-3xl font-bold mb-4">What We Work With</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {skillGroups.map((group) => (
-          <div class="bg-dark-card border border-dark-border rounded-xl p-6">
-            <h3 class="font-heading text-xl font-bold mb-4 text-teal-light">{group.title}</h3>
+          <div class="bg-surface border border-border-subtle rounded-xl p-6">
+            <h3 class="tracking-tight text-xl font-bold mb-4 text-accent">{group.title}</h3>
             <ul class="space-y-2">
               {group.items.map((item) => (
                 <li class="flex gap-3 text-sm text-text-muted leading-relaxed">
-                  <span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-gold" aria-hidden="true" />
+                  <span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -105,7 +103,7 @@ const skillGroups = [
       </div>
 
       <p class="text-center text-text-muted mt-12">
-        Want to work together? <a href="/contact?subject=work" class="text-teal-light hover:text-gold transition-colors font-medium">Get in touch</a>.
+        Want to work together? <a href="/contact?subject=work" class="text-accent hover:text-accent transition-colors font-medium">Get in touch</a>.
       </p>
     </div>
   </section>
@@ -114,19 +112,18 @@ const skillGroups = [
   <section class="py-24">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl font-bold mb-4">Our Values</h2>
-        <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
+        <h2 class="tracking-tight text-3xl font-bold mb-4">Our Values</h2>
       </div>
 
       <div class="space-y-12">
         <div class="flex gap-6">
-          <div class="shrink-0 w-12 h-12 bg-dark-card border border-dark-border rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6 text-teal-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="shrink-0 w-12 h-12 bg-surface border border-border-subtle rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
             </svg>
           </div>
           <div>
-            <h3 class="font-heading text-xl font-bold mb-2 text-text">You Stay in Control</h3>
+            <h3 class="tracking-tight text-xl font-bold mb-2 text-text">You Stay in Control</h3>
             <p class="text-text-muted leading-relaxed">
               Choices should be real. In Parting Shadows, the story genuinely branches. In Wunderelf
               Workshop, you review the plan before anything is written and can change it.
@@ -135,13 +132,13 @@ const skillGroups = [
         </div>
 
         <div class="flex gap-6">
-          <div class="shrink-0 w-12 h-12 bg-dark-card border border-dark-border rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6 text-teal-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="shrink-0 w-12 h-12 bg-surface border border-border-subtle rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm12 0a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
             </svg>
           </div>
           <div>
-            <h3 class="font-heading text-xl font-bold mb-2 text-text">Depth Without Overwhelm</h3>
+            <h3 class="tracking-tight text-xl font-bold mb-2 text-text">Depth Without Overwhelm</h3>
             <p class="text-text-muted leading-relaxed">
               Deep systems should feel inviting, not intimidating. A new player, a new pool member or a
               new Workshop user should be able to start simple and find the depth when they want it.
@@ -150,13 +147,13 @@ const skillGroups = [
         </div>
 
         <div class="flex gap-6">
-          <div class="shrink-0 w-12 h-12 bg-dark-card border border-dark-border rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6 text-teal-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="shrink-0 w-12 h-12 bg-surface border border-border-subtle rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
           </div>
           <div>
-            <h3 class="font-heading text-xl font-bold mb-2 text-text">Made With Care</h3>
+            <h3 class="tracking-tight text-xl font-bold mb-2 text-text">Made With Care</h3>
             <p class="text-text-muted leading-relaxed">
               Every product here started as something we wanted to use ourselves. That is the bar each
               one has to meet before it ships.
