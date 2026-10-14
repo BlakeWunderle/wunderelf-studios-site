@@ -1,8 +1,49 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const skillGroups = [
+  {
+    title: "Apps and Websites",
+    items: [
+      "One codebase that runs as a website and as iPhone and Android apps",
+      "Sign-in and accounts, push notifications and email",
+      "Live scores, schedules and stats from sports data feeds, including soccer",
+      "Payments and subscriptions with Stripe",
+      "Marketing websites with search engine setup, trailers and press kits",
+    ],
+  },
+  {
+    title: "Behind the Scenes",
+    items: [
+      "APIs and databases in C#/.NET and PostgreSQL",
+      "Background jobs that pull in data and keep it current",
+      "Automated testing and automated releases with GitHub Actions",
+      "Cloud hosting with Docker, on AWS and Railway",
+      "AI tools built on Claude, with every step kept narrow and checkable",
+    ],
+  },
+  {
+    title: "Design",
+    items: [
+      "Screen design with accessibility checks",
+      "Game design and balancing",
+      "Art, 3D character and video pipelines for trailers, ads and store pages",
+    ],
+  },
+  {
+    title: "Network and Security",
+    items: [
+      "Secure sign-in that is on by default: the server won't start if security settings are missing",
+      "Rate limiting, and separating data so each team only sees its own",
+      "Reverse proxies, load balancers, health checks and private networking between services",
+      "Verified payment webhooks, expiring signed download links and browser security headers",
+      "Passwords and keys kept out of the code, in managed secrets",
+    ],
+  },
+];
 ---
 
-<BaseLayout title="About" description="Learn about Wunderelf Studios, an indie game studio where stories become adventures.">
+<BaseLayout title="About" description="Wunderelf Studios is an independent studio making games and apps, run by a solution architect with more than ten years in software.">
   <section class="py-24">
     <div class="max-w-3xl mx-auto px-6">
       <div class="text-center mb-16">
@@ -12,30 +53,65 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
       <div class="space-y-8 text-text-muted leading-relaxed text-lg">
         <p>
-          Wunderelf Studios started the way a lot of good things do: someone wanted to build
-          something they couldn't find anywhere else. By day, the work is computer architecture.
-          By night and weekends, it's building worlds. The name? It came from a soccer sweatshirt
-          where the bottom of the last "E" in "Wunderle" fell off, and "Wunderelf" was too good
-          not to keep.
+          Wunderelf Studios is Blake Wunderle's independent studio. By day, Blake is a solution architect at
+          FoodChain ID with more than ten years in software: designing how large enterprise systems connect,
+          writing the technical specs, leading development teams, and building AI tools on Claude for clients.
+          Evenings and weekends go to the studio.
         </p>
 
         <p>
-          The studio's debut title, <a href="/parting-shadows" class="text-teal-light hover:text-gold transition-colors font-medium">Parting Shadows</a>,
-          grew from a simple console app into a full RPG. It pulls from a lifetime of favorite games
-          and years of weekly D&amp;D sessions, combining the class systems, tactical combat, and
-          branching storytelling that make those experiences unforgettable.
+          The name came from a soccer sweatshirt where the bottom of the last "E" in "Wunderle" fell off,
+          and "Wunderelf" was too good not to keep.
         </p>
 
         <p>
-          We're committed to building games with care, one at a time, and creating worlds
-          that players want to return to.
+          The studio's first release, <a href="/parting-shadows" class="text-teal-light hover:text-gold transition-colors font-medium">Parting Shadows</a>,
+          grew from a simple console app into a full RPG on Steam, drawing on years of weekly D&amp;D sessions.
+          <a href="/wunderelf-sports" class="text-teal-light hover:text-gold transition-colors font-medium">Wunderelf Sports</a>
+          came next: pick'em pools and live scores on the web, iPhone and Android.
+          <a href="/wunderelf-workshop" class="text-teal-light hover:text-gold transition-colors font-medium">Wunderelf Workshop</a>,
+          which turns a team's documents into cited, fact-checked decks and reports, is launching soon.
+        </p>
+
+        <p>
+          Each one is designed, built, tested and supported here, from the database to the store page.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Values -->
+  <!-- Skills -->
   <section class="py-24 bg-dark-surface">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-heading text-3xl font-bold mb-4">What We Work With</h2>
+        <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {skillGroups.map((group) => (
+          <div class="bg-dark-card border border-dark-border rounded-xl p-6">
+            <h3 class="font-heading text-xl font-bold mb-4 text-teal-light">{group.title}</h3>
+            <ul class="space-y-2">
+              {group.items.map((item) => (
+                <li class="flex gap-3 text-sm text-text-muted leading-relaxed">
+                  <span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-gold" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-text-muted mt-12">
+        Want to work together? <a href="/contact?subject=work" class="text-teal-light hover:text-gold transition-colors font-medium">Get in touch</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-24">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="font-heading text-3xl font-bold mb-4">Our Values</h2>
@@ -50,10 +126,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             </svg>
           </div>
           <div>
-            <h3 class="font-heading text-xl font-bold mb-2 text-text">Player Agency</h3>
+            <h3 class="font-heading text-xl font-bold mb-2 text-text">You Stay in Control</h3>
             <p class="text-text-muted leading-relaxed">
-              Choices should be real. When a player makes a decision, they should feel the weight of it.
-              We build genuinely different paths, not the illusion of branching.
+              Choices should be real. In Parting Shadows, the story genuinely branches. In Wunderelf
+              Workshop, you review the plan before anything is written and can change it.
             </p>
           </div>
         </div>
@@ -67,8 +143,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <div>
             <h3 class="font-heading text-xl font-bold mb-2 text-text">Depth Without Overwhelm</h3>
             <p class="text-text-muted leading-relaxed">
-              Deep systems should feel inviting, not intimidating. We design complexity that
-              reveals itself naturally, so players can start simple and grow into mastery.
+              Deep systems should feel inviting, not intimidating. A new player, a new pool member or a
+              new Workshop user should be able to start simple and find the depth when they want it.
             </p>
           </div>
         </div>
@@ -80,10 +156,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             </svg>
           </div>
           <div>
-            <h3 class="font-heading text-xl font-bold mb-2 text-text">Made With Passion</h3>
+            <h3 class="font-heading text-xl font-bold mb-2 text-text">Made With Care</h3>
             <p class="text-text-muted leading-relaxed">
-              This started as a side project born from a love of RPGs and D&amp;D. That energy
-              drives every decision, from how combat feels to how stories unfold.
+              Every product here started as something we wanted to use ourselves. That is the bar each
+              one has to meet before it ships.
             </p>
           </div>
         </div>

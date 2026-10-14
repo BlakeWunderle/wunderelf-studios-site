@@ -1,13 +1,7 @@
 ---
-const currentPath = Astro.url.pathname;
+import { navLinks } from "../data/nav";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/parting-shadows", label: "Parting Shadows" },
-  { href: "/about", label: "About" },
-  { href: "/press", label: "Press" },
-  { href: "/contact", label: "Contact" },
-];
+const currentPath = Astro.url.pathname;
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-bg/90 backdrop-blur-md border-b border-dark-border">
@@ -20,7 +14,7 @@ const navLinks = [
     </a>
 
     <!-- Desktop nav -->
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden lg:flex items-center gap-6">
       {navLinks.map((link) => (
         <a
           href={link.href}
@@ -39,7 +33,7 @@ const navLinks = [
     <!-- Mobile menu button -->
     <button
       id="mobile-menu-btn"
-      class="md:hidden text-text-muted hover:text-teal-light transition-colors"
+      class="lg:hidden text-text-muted hover:text-teal-light transition-colors"
       aria-label="Toggle menu"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,7 +43,7 @@ const navLinks = [
   </div>
 
   <!-- Mobile nav -->
-  <div id="mobile-menu" class="md:hidden border-t border-dark-border bg-dark-bg/95 backdrop-blur-md overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+  <div id="mobile-menu" class="lg:hidden border-t border-dark-border bg-dark-bg/95 backdrop-blur-md overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
     <div class="px-6 py-4 flex flex-col gap-4">
       {navLinks.map((link) => (
         <a

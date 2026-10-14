@@ -1,0 +1,171 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+
+// Flip to true once workshop.wunderelfstudios.com is in production.
+const isLive = false;
+const appUrl = "https://workshop.wunderelfstudios.com";
+const ctaHref = isLive ? appUrl : "/contact?subject=workshop";
+const ctaLabel = isLive ? "Open Wunderelf Workshop" : "Ask About Early Access";
+
+// Matches Crew's docs/SPEC.md "Plans and documents". Change both together.
+const plans = [
+  { name: "Basic", price: "$10", per: "a month", documents: "4 documents a month", extra: "Extra documents $2.50 each" },
+  { name: "Starter", price: "$20", per: "a month", documents: "10 documents a month", extra: "Extra documents $2.00 each" },
+  { name: "Plus", price: "$35", per: "a month", documents: "20 documents a month", extra: "Extra documents $1.75 each" },
+  { name: "Pro", price: "$50", per: "a month", documents: "35 documents a month", extra: "Extra documents $1.43 each" },
+  { name: "Own key", price: "$5", per: "a person a month", documents: "No document limit", extra: "Runs on your team's own Anthropic account" },
+];
+
+const steps = [
+  { title: "Ask", text: "Describe what you need in a chat and attach your files: PDF, Word, Excel, PowerPoint, text or CSV." },
+  { title: "Clarify", text: "If the request could be read two ways, the Workshop asks before it guesses." },
+  { title: "Plan", text: "You review an outline of every slide or section, with the sources each one will use, and change it before anything is written." },
+  { title: "Write", text: "Each slide or section is written using only its own sources, in your company template if you have one." },
+  { title: "Fact-check", text: "Every claim is checked against its sources and rewritten if it doesn't hold up. Anything that can't be supported becomes a visible placeholder." },
+];
+---
+
+<BaseLayout
+  title="Wunderelf Workshop"
+  description="Wunderelf Workshop turns your team's documents into slide decks and reports where every claim cites its source and is fact-checked."
+>
+  <!-- Hero -->
+  <section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-dark-bg via-dark-surface to-dark-bg" />
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <img src="/images/products/elf-logo.webp" alt="" class="w-28 h-28 mx-auto mb-8 rounded-full ring-2 ring-gold/70" />
+      <h1 class="font-heading text-5xl md:text-6xl font-bold mb-4">
+        Wunderelf <span class="text-gold">Workshop</span>
+      </h1>
+      <p class="text-xl text-text-muted mb-8 max-w-2xl mx-auto leading-relaxed">
+        Turn your team's documents into slide decks and reports where every claim cites its source and is fact-checked.
+      </p>
+      <a
+        href={ctaHref}
+        class="inline-flex items-center justify-center px-8 py-3 bg-gold hover:bg-gold-light text-dark-bg font-heading font-bold text-lg rounded-lg transition-colors"
+      >
+        {ctaLabel}
+      </a>
+      {!isLive && (
+        <p class="mt-4 text-sm text-text-muted">The Workshop is launching soon. Get in touch to try it early.</p>
+      )}
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-24 bg-dark-surface">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
+        <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
+      </div>
+
+      <ol class="space-y-8">
+        {steps.map((step, i) => (
+          <li class="flex gap-6">
+            <div class="shrink-0 w-12 h-12 bg-dark-card border border-dark-border rounded-lg flex items-center justify-center font-heading text-xl font-bold text-teal-light">
+              {i + 1}
+            </div>
+            <div>
+              <h3 class="font-heading text-xl font-bold mb-1 text-text">{step.title}</h3>
+              <p class="text-text-muted leading-relaxed">{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">What You Get</h2>
+        <div class="w-16 h-1 bg-teal mx-auto rounded-full" />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <FeatureCard
+          title="Decks and Documents"
+          description="PowerPoint decks, Word documents and web pages, and every one also downloads as a PDF."
+        />
+        <FeatureCard
+          title="Cited Sources"
+          description="Documents carry numbered citations and a sources list, so anyone can see where each claim came from."
+        />
+        <FeatureCard
+          title="Your Template"
+          description="Upload a PowerPoint or Word template and the result uses your colors, fonts and layouts. Without one, a built-in theme gives the same polish."
+        />
+        <FeatureCard
+          title="Changes in Plain Words"
+          description="Ask for a change to one slide or section at a time. The rest of the document stays as it was, and you can undo."
+        />
+        <FeatureCard
+          title="Team Accounts"
+          description="Invite your team, share a plan, and keep each team's files and documents separate from every other team's."
+        />
+        <FeatureCard
+          title="Remembers Your Preferences"
+          description="Standing preferences, such as a favorite format or template, carry over to every new chat."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-24 bg-dark-surface">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Plans and Prices</h2>
+        <div class="w-16 h-1 bg-gold mx-auto rounded-full" />
+        <p class="text-text-muted mt-6 max-w-2xl mx-auto leading-relaxed">
+          A document is one chat, counted once at its first build. Revisions are included. Prices are in US dollars, billed monthly, with tax added at checkout.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {plans.map((plan) => (
+          <div class="bg-dark-card border border-dark-border rounded-xl p-6 flex flex-col">
+            <h3 class="font-heading text-xl font-bold text-text mb-2">{plan.name}</h3>
+            <p class="mb-4">
+              <span class="font-heading text-4xl font-bold text-gold">{plan.price}</span>
+              <span class="text-sm text-text-muted"> {plan.per}</span>
+            </p>
+            <p class="text-sm text-text mb-2">{plan.documents}</p>
+            <p class="text-xs text-text-muted leading-relaxed">{plan.extra}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 max-w-3xl mx-auto text-sm text-text-muted leading-relaxed space-y-3">
+        <p>
+          <span class="text-text font-medium">Not ready for a plan?</span> Buy 2 documents for $6, as often as you like. They never expire.
+        </p>
+        <p>
+          <span class="text-text font-medium">Extra documents</span> are bought five at a time, never expire, and stay usable after a plan ends.
+        </p>
+        <p>
+          <span class="text-text font-medium">Fair use:</span> one chat can spend up to $3 of model time on changes. After that, start a new chat. Own key plans have no limit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6">Questions?</h2>
+      <p class="text-text-muted mb-10 text-lg">
+        Ask about plans, early access, or whether the Workshop fits your team's work.
+      </p>
+      <a
+        href={ctaHref}
+        class="inline-flex items-center gap-3 px-10 py-4 bg-gold hover:bg-gold-light text-dark-bg font-heading font-bold text-xl rounded-lg transition-colors"
+      >
+        {ctaLabel}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

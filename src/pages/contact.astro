@@ -2,14 +2,14 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Contact" description="Get in touch with Wunderelf Studios.">
+<BaseLayout title="Contact" description="Contact Wunderelf Studios for general inquiries, press, support for our games and apps, or to work together.">
   <section class="py-24">
     <div class="max-w-3xl mx-auto px-6">
       <div class="text-center mb-16">
         <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
         <div class="w-16 h-1 bg-teal mx-auto rounded-full" />
         <p class="text-text-muted mt-6 max-w-xl mx-auto">
-          Have a question, press inquiry, or just want to say hello? We'd love to hear from you.
+          Questions about Parting Shadows, Wunderelf Sports or Wunderelf Workshop, press requests, or a project you'd like to work on together: we'd love to hear from you.
         </p>
       </div>
 
@@ -21,7 +21,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
-          <h3 class="font-heading text-lg font-bold mb-2">Email</h3>
+          <h3 class="font-heading text-lg font-bold mb-2">General Inquiries</h3>
           <button id="copy-email" data-email="wunderelfstudios@gmail.com" class="text-teal-light hover:text-gold transition-colors text-sm cursor-pointer">
             wunderelfstudios@gmail.com
           </button>
@@ -80,9 +80,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               name="subject"
               class="w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-text focus:outline-none focus:border-teal transition-colors"
             >
-              <option value="general">General Inquiry</option>
-              <option value="press">Press / Media</option>
-              <option value="bug">Bug Report</option>
+              <option value="general">General inquiry</option>
+              <option value="work">Work together</option>
+              <option value="sports">Wunderelf Sports support</option>
+              <option value="workshop">Wunderelf Workshop</option>
+              <option value="parting-shadows">Parting Shadows support</option>
+              <option value="press">Press and media</option>
               <option value="feedback">Feedback</option>
             </select>
           </div>
@@ -116,6 +119,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </div>
 
   <script>
+    // Links such as /contact?subject=workshop open the form with that subject chosen.
+    const subjectSelect = document.getElementById("subject") as HTMLSelectElement | null;
+    const requested = new URLSearchParams(window.location.search).get("subject");
+    if (subjectSelect && requested && [...subjectSelect.options].some((o) => o.value === requested)) {
+      subjectSelect.value = requested;
+    }
+
     const copyBtn = document.getElementById("copy-email");
     const toast = document.getElementById("copy-toast");
     let hideTimeout: number;

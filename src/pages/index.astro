@@ -1,6 +1,41 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import FeatureCard from "../components/FeatureCard.astro";
+
+const products = [
+  {
+    name: "Parting Shadows",
+    kind: "Game",
+    status: "Out now on Steam",
+    pitch:
+      "A narrative RPG for one to three players. Build a party from 56 classes and play three branching stories, alone or in online co-op.",
+    image: "/images/capsule.png",
+    isLogo: false,
+    href: "/parting-shadows",
+  },
+  {
+    name: "Wunderelf Sports",
+    kind: "App",
+    status: "On the web, phone apps in testing",
+    pitch:
+      "Weekly pick'em pools for your group and live scores from 34 leagues, on the web, iPhone and Android.",
+    image: "/images/products/sports-feature.webp",
+    isLogo: false,
+    // The banner has text near its left edge, so show it whole rather than crop it.
+    fit: "contain",
+    href: "/wunderelf-sports",
+  },
+  {
+    name: "Wunderelf Workshop",
+    kind: "App",
+    status: "Launching soon",
+    pitch:
+      "Turns your team's documents into slide decks and reports where every claim cites its source and is fact-checked.",
+    image: "/images/products/elf-logo.webp",
+    isLogo: true,
+    href: "/wunderelf-workshop",
+  },
+];
 ---
 
 <BaseLayout title="Home">
@@ -15,61 +50,69 @@ import FeatureCard from "../components/FeatureCard.astro";
         <span class="text-teal-light">Wunderelf</span> Studios
       </h1>
       <p class="text-xl md:text-2xl text-text-muted mb-10 max-w-2xl mx-auto leading-relaxed">
-        Where stories become adventures.
+        An independent studio making games and apps.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="/parting-shadows"
+          href="#products"
           class="inline-flex items-center justify-center px-8 py-3 bg-teal hover:bg-teal-light text-white font-heading font-bold text-lg rounded-lg transition-colors"
         >
-          Our Latest Game
+          See What We Make
         </a>
         <a
           href="/about"
           class="inline-flex items-center justify-center px-8 py-3 border border-dark-border hover:border-teal text-text-muted hover:text-teal-light font-heading font-bold text-lg rounded-lg transition-colors"
         >
-          About Us
+          About the Studio
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Featured Game -->
-  <section class="py-24 bg-dark-surface">
+  <!-- Products -->
+  <section id="products" class="py-24 bg-dark-surface scroll-mt-16">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Featured Game</h2>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">What We Make</h2>
         <div class="w-16 h-1 bg-teal mx-auto rounded-full" />
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="aspect-video rounded-xl border border-dark-border overflow-hidden">
-          <img src="/images/capsule.png" alt="Parting Shadows" class="w-full h-full object-cover" />
-        </div>
-
-        <div>
-          <h3 class="font-heading text-3xl font-bold mb-4 text-gold">Parting Shadows</h3>
-          <p class="text-text-muted leading-relaxed mb-6">
-            A narrative RPG where your decisions shape the world. Build a party of three from 56 unique classes,
-            battle through branching storylines, and discover that every choice carries weight.
-            Three interconnected stories. Hundreds of paths. No two playthroughs are the same.
-          </p>
-          <div class="flex flex-wrap gap-3 mb-8">
-            <span class="px-3 py-1 bg-dark-card border border-dark-border rounded-full text-xs text-text-muted">RPG</span>
-            <span class="px-3 py-1 bg-dark-card border border-dark-border rounded-full text-xs text-text-muted">Turn-Based</span>
-            <span class="px-3 py-1 bg-dark-card border border-dark-border rounded-full text-xs text-text-muted">Branching Narrative</span>
-            <span class="px-3 py-1 bg-dark-card border border-dark-border rounded-full text-xs text-text-muted">Co-op</span>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {products.map((p) => (
           <a
-            href="/parting-shadows"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-light text-dark-bg font-heading font-bold rounded-lg transition-colors"
+            href={p.href}
+            class="group flex flex-col bg-dark-card border border-dark-border rounded-xl overflow-hidden hover:border-teal/50 transition-colors"
           >
-            Learn More
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
+            <div class="aspect-video bg-black overflow-hidden flex items-center justify-center">
+              <img
+                src={p.image}
+                alt=""
+                class:list={[
+                  "group-hover:scale-105 transition-transform duration-300",
+                  p.isLogo
+                    ? "h-3/4 rounded-full ring-2 ring-gold/70"
+                    : p.fit === "contain"
+                      ? "w-full h-full object-contain"
+                      : "w-full h-full object-cover",
+                ]}
+              />
+            </div>
+            <div class="flex flex-col flex-1 p-6">
+              <div class="flex items-center justify-between gap-3 mb-2">
+                <span class="text-xs font-heading uppercase tracking-wider text-teal-light">{p.kind}</span>
+                <span class="text-xs text-text-muted text-right">{p.status}</span>
+              </div>
+              <h3 class="font-heading text-2xl font-bold mb-3 text-gold">{p.name}</h3>
+              <p class="text-sm text-text-muted leading-relaxed flex-1">{p.pitch}</p>
+              <span class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-teal-light group-hover:text-gold transition-colors">
+                Learn more
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
           </a>
-        </div>
+        ))}
       </div>
     </div>
   </section>
@@ -84,16 +127,16 @@ import FeatureCard from "../components/FeatureCard.astro";
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <FeatureCard
-          title="Stories Worth Telling"
-          description="We build worlds you want to live in. Every game starts with a story worth experiencing, then we build the systems to bring it to life."
+          title="Choices That Matter"
+          description="In a game, your decisions change the story. In an app, you stay in charge: you review the plan before anything is built, and nothing is decided behind your back."
         />
         <FeatureCard
-          title="Choices That Matter"
-          description="Inspired by years of tabletop RPGs, we design branching narratives where your decisions have real consequences, not the illusion of them."
+          title="Right Beats Fast"
+          description="Picks lock on time, scores stay current, and every claim in a Workshop document points to its source. We would rather be slow and right than fast and wrong."
         />
         <FeatureCard
           title="Built With Care"
-          description="One studio, one game at a time. We'd rather build something we're proud of than rush to ship."
+          description="Everything here is designed, built, tested and supported by the same small studio. We would rather ship something we are proud of than rush it out."
         />
       </div>
     </div>
