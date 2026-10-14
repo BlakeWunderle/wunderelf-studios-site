@@ -2,6 +2,15 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import FeatureCard from "../components/FeatureCard.astro";
 import ElfLogo from "../components/ElfLogo.astro";
+import ScreenshotGallery from "../components/ScreenshotGallery.astro";
+
+// Stills from the same recorded demo as the video.
+const screenshots = [
+  { src: "/images/workshop/plan.webp", alt: "The plan to review before building, slide by slide" },
+  { src: "/images/workshop/building.webp", alt: "Each slide being written and fact-checked" },
+  { src: "/images/workshop/deck.webp", alt: "The finished deck, with every slide fact-checked" },
+  { src: "/images/workshop/slide.webp", alt: "One slide with its fact-check and sources" },
+];
 
 // Flip to true once workshop.wunderelfstudios.com is in production.
 const isLive = false;
@@ -50,6 +59,35 @@ const steps = [
       {!isLive && (
         <p class="mt-4 text-sm text-text-muted">The Workshop is launching soon. Get in touch to try it early.</p>
       )}
+    </div>
+  </section>
+
+  <!-- Demo -->
+  <section class="py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-4">See It Work</h2>
+        <p class="text-text-muted max-w-2xl mx-auto leading-relaxed">
+          A board deck from a page of season notes: attach the notes, ask for the deck, review the plan, build.
+          The waits while the Workshop plans and writes are sped up.
+        </p>
+      </div>
+
+      <video
+        class="w-full rounded-xl border border-border-subtle bg-surface shadow-md"
+        src="/videos/workshop-demo.mp4"
+        poster="/images/workshop/deck.webp"
+        controls
+        muted
+        playsinline
+        preload="metadata"
+        aria-label="Wunderelf Workshop demo: building a six-slide board deck from attached notes"
+      ></video>
+      <p class="mt-3 text-center text-xs text-text-faint">Recorded with made-up sample data.</p>
+
+      <div class="mt-12">
+        <ScreenshotGallery images={screenshots} columns={2} />
+      </div>
     </div>
   </section>
 

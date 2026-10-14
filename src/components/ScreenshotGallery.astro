@@ -3,14 +3,18 @@ interface Props {
   images: { src: string; alt: string }[];
   // Phone screenshots are portrait; cropping them to 16:9 cuts off most of the screen.
   portrait?: boolean;
+  // Two columns suit an even number of wide images; three leaves one alone on the last row.
+  columns?: 2 | 3;
 }
 
-const { images, portrait = false } = Astro.props;
+const { images, portrait = false, columns = 3 } = Astro.props;
 ---
 
 <div class:list={[
   "grid gap-4",
-  portrait ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+  portrait
+    ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
+    : columns === 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
 ]}>
   {images.map((img) => (
     <button
