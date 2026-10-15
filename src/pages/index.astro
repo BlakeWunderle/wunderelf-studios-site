@@ -3,40 +3,39 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import FeatureCard from "../components/FeatureCard.astro";
 import ElfLogo from "../components/ElfLogo.astro";
 
-const products = [
+import { products as productLinks } from "../data/products";
+
+// Card copy lives here; the links come from the shared products list so they match the footer and contact page.
+const cards = [
   {
-    name: "Parting Shadows",
+    page: "/parting-shadows",
     kind: "Game",
     status: "Out now on Steam",
     pitch:
       "A narrative RPG for one to three players. Build a party from 56 classes and play three branching stories, alone or in online co-op.",
     image: "/images/capsule.png",
-    isLogo: false,
-    href: "/parting-shadows",
+    fit: "cover",
   },
   {
-    name: "Wunderelf Sports",
+    page: "/wunderelf-sports",
     kind: "App",
     status: "On the web, phone apps in testing",
     pitch:
       "Weekly pick'em pools for your group and live scores from 34 leagues, on the web, iPhone and Android.",
     image: "/images/products/sports-feature.webp",
-    isLogo: false,
     // The banner has text near its left edge, so show it whole rather than crop it.
     fit: "contain",
-    href: "/wunderelf-sports",
   },
   {
-    name: "Wunderelf Workshop",
+    page: "/wunderelf-workshop",
     kind: "App",
-    status: "Launching soon",
+    status: "Live now",
     pitch:
       "Turns your team's documents into slide decks and reports where every claim cites its source and is fact-checked.",
-    image: "",
-    isLogo: true,
-    href: "/wunderelf-workshop",
+    image: "/images/workshop/hero.webp",
+    fit: "cover",
   },
-];
+].map((card) => ({ ...card, ...productLinks.find((p) => p.page === card.page)! }));
 ---
 
 <BaseLayout title="Home">
@@ -76,40 +75,41 @@ const products = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {products.map((p) => (
-          <a
-            href={p.href}
-            class="group flex flex-col bg-surface border border-border-subtle rounded-xl overflow-hidden hover:border-border-strong transition-colors"
-          >
-            <div class:list={["aspect-video overflow-hidden flex items-center justify-center border-b border-border-subtle", p.isLogo ? "bg-ground" : "bg-black"]}>
-              {p.isLogo ? (
-                <ElfLogo class="h-3/4 w-auto aspect-square" />
-              ) : (
-                <img
-                  src={p.image}
-                  alt=""
-                  class:list={[
-                    "w-full h-full",
-                    p.fit === "contain" ? "object-contain" : "object-cover",
-                  ]}
-                />
-              )}
-            </div>
+        {cards.map((p) => (
+          <div class="flex flex-col bg-surface border border-border-subtle rounded-xl overflow-hidden">
+            <a href={p.page} class="block aspect-video bg-black overflow-hidden border-b border-border-subtle" tabindex="-1" aria-hidden="true">
+              <img src={p.image} alt="" class:list={["w-full h-full", p.fit === "contain" ? "object-contain" : "object-cover"]} />
+            </a>
             <div class="flex flex-col flex-1 p-6">
               <div class="flex items-center justify-between gap-3 mb-2">
                 <span class="text-[11px] font-semibold uppercase tracking-wide text-text-faint">{p.kind}</span>
                 <span class="text-[11px] text-text-faint text-right">{p.status}</span>
               </div>
-              <h3 class="tracking-tight text-xl font-bold mb-2 text-text">{p.name}</h3>
+              <h3 class="tracking-tight text-xl font-bold mb-2 text-text">
+                <a href={p.page} class="hover:text-accent transition-colors">{p.name}</a>
+              </h3>
               <p class="text-sm text-text-muted leading-relaxed flex-1">{p.pitch}</p>
-              <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent">
-                Learn more
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
+              <div class="mt-6 flex gap-2">
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-track={p.track}
+                  data-location="home"
+                  class="flex-1 inline-flex items-center justify-center rounded-lg bg-accent px-3 py-2 text-sm font-semibold text-accent-contrast hover:opacity-90 transition-opacity"
+                >
+                  {p.action}
+                </a>
+                <a
+                  href={p.page}
+                  class="flex-1 inline-flex items-center justify-center rounded-lg border border-border-subtle px-3 py-2 text-sm font-semibold text-text hover:border-border-strong transition-colors"
+                  aria-label={`Learn more about ${p.name}`}
+                >
+                  Learn more
+                </a>
+              </div>
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </div>

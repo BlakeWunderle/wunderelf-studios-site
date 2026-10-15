@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import FeatureCard from "../components/FeatureCard.astro";
-import ElfLogo from "../components/ElfLogo.astro";
 import ScreenshotGallery from "../components/ScreenshotGallery.astro";
 
 // Stills from the same recorded demo as the video.
@@ -12,11 +11,7 @@ const screenshots = [
   { src: "/images/workshop/slide.webp", alt: "One slide with its fact-check and sources" },
 ];
 
-// Flip to true once workshop.wunderelfstudios.com is in production.
-const isLive = false;
 const appUrl = "https://workshop.wunderelfstudios.com";
-const ctaHref = isLive ? appUrl : "/contact?subject=workshop";
-const ctaLabel = isLive ? "Open Wunderelf Workshop" : "Ask About Early Access";
 
 // Matches Crew's docs/SPEC.md "Plans and documents". Change both together.
 const plans = [
@@ -39,26 +34,43 @@ const steps = [
 <BaseLayout
   title="Wunderelf Workshop"
   description="Wunderelf Workshop turns your team's documents into slide decks and reports where every claim cites its source and is fact-checked."
+  ogImage="/images/workshop/hero-og.jpg"
 >
-  <!-- Hero -->
-  <section class="relative py-24 overflow-hidden">
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      <div class="flex justify-center mb-8"><ElfLogo class="w-28 h-28" /></div>
-      <h1 class="tracking-tight text-5xl md:text-6xl font-bold mb-4">
-        Wunderelf <span class="text-accent">Workshop</span>
-      </h1>
-      <p class="text-xl text-text-muted mb-8 max-w-2xl mx-auto leading-relaxed">
-        Turn your team's documents into slide decks and reports where every claim cites its source and is fact-checked.
-      </p>
-      <a
-        href={ctaHref}
-        class="inline-flex items-center justify-center px-8 py-3 bg-accent hover:opacity-90 text-accent-contrast tracking-tight font-bold text-lg rounded-lg transition-colors"
-      >
-        {ctaLabel}
-      </a>
-      {!isLive && (
-        <p class="mt-4 text-sm text-text-muted">The Workshop is launching soon. Get in touch to try it early.</p>
-      )}
+  <!-- Hero: laid out like the Wunderelf Sports page, text beside the product. -->
+  <section class="py-24">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="text-center lg:text-left">
+        <h1 class="tracking-tight text-5xl md:text-6xl font-bold mb-4">
+          Wunderelf <span class="text-accent">Workshop</span>
+        </h1>
+        <p class="text-xl text-text-muted mb-8 leading-relaxed">
+          Turn your team's documents into slide decks and reports where every claim cites its source and is fact-checked.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+          <a
+            href={appUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center whitespace-nowrap px-7 py-3 bg-accent hover:opacity-90 text-accent-contrast font-bold text-lg rounded-lg transition-opacity"
+          >
+            Open the Workshop
+          </a>
+          <a
+            href="#pricing"
+            class="inline-flex items-center justify-center whitespace-nowrap px-7 py-3 border border-border-subtle hover:border-border-strong bg-surface text-text font-semibold text-lg rounded-lg transition-colors"
+          >
+            See Plans
+          </a>
+        </div>
+        <p class="mt-4 text-sm text-text-muted">Plans start at $10 a month, or try 2 documents for $6.</p>
+      </div>
+      <img
+        src="/images/workshop/hero.webp"
+        width="1600"
+        height="1000"
+        alt="A request with season notes attached becomes a fact-checked slide deck citing those notes"
+        class="w-full rounded-xl border border-border-subtle shadow-md"
+      />
     </div>
   </section>
 
@@ -151,7 +163,7 @@ const steps = [
   </section>
 
   <!-- Pricing -->
-  <section class="py-24 border-y border-border-subtle bg-surface-raised/40">
+  <section id="pricing" class="py-24 border-y border-border-subtle bg-surface-raised/40 scroll-mt-14">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-4">Plans and Prices</h2>
@@ -191,16 +203,27 @@ const steps = [
   <!-- CTA -->
   <section class="py-24">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-6">Questions?</h2>
+      <h2 class="tracking-tight text-3xl md:text-4xl font-bold mb-6">Make Your First Deck</h2>
       <p class="text-text-muted mb-10 text-lg">
-        Ask about plans, early access, or whether the Workshop fits your team's work.
+        Sign in, attach your files and describe what you need. You review the plan before anything is written.
       </p>
       <a
-        href={ctaHref}
-        class="inline-flex items-center gap-3 px-10 py-4 bg-accent hover:opacity-90 text-accent-contrast tracking-tight font-bold text-xl rounded-lg transition-colors"
+        href={appUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 px-10 py-4 bg-accent hover:opacity-90 text-accent-contrast font-bold text-xl rounded-lg transition-opacity"
       >
-        {ctaLabel}
+        Open Wunderelf Workshop
       </a>
+      <p class="mt-8 text-sm text-text-muted">
+        Questions about plans, or whether the Workshop fits your team's work?
+        <a href="/contact?subject=workshop" class="text-accent font-medium underline">Get in touch</a>.
+      </p>
+      <p class="mt-3 text-sm text-text-muted">
+        <a href={`${appUrl}/terms`} target="_blank" rel="noopener noreferrer" class="hover:text-text underline">Terms</a>
+        <span class="mx-2">·</span>
+        <a href={`${appUrl}/privacy`} target="_blank" rel="noopener noreferrer" class="hover:text-text underline">Privacy policy</a>
+      </p>
     </div>
   </section>
 </BaseLayout>

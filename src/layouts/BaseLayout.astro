@@ -83,9 +83,9 @@ const siteTitle = title === "Home" ? "Wunderelf Studios" : `${title} | Wunderelf
     <Footer />
     <script is:inline>
       document.addEventListener('click', function(e) {
-        var link = e.target.closest('[data-track="steam_click"]');
+        var link = e.target.closest('[data-track]');
         if (link && typeof gtag !== 'undefined') {
-          gtag('event', 'steam_click', {
+          gtag('event', link.dataset.track, {
             event_category: 'outbound',
             event_label: link.dataset.location || 'unknown',
             transport_type: 'beacon'

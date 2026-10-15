@@ -3,41 +3,43 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const skillGroups = [
   {
+    title: "Architecture",
+    items: [
+      "Thin controllers: an endpoint checks who is asking, calls one service and returns the result",
+      "Business rules live in the API's service layer, each defined once and covered by a test",
+      "Front ends only present what the API sends, so a website, an iPhone app or an Android app shows the same data the same way",
+      "A new front end can be added without rewriting a single rule",
+      "C#/.NET APIs on PostgreSQL, with data access kept in its own layer",
+    ],
+  },
+  {
+    title: "UI and UX",
+    items: [
+      "Screens that don't jump: a control that locks or loads stays where it was",
+      "Honest status: say when data was last updated, and never claim a save that didn't happen",
+      "Plain wording that gives the reason, placed before the button rather than after it",
+      "Confirmations that name what will happen, with more care for anything that can't be undone",
+      "Accessibility built in: real buttons, never color alone, light and dark themes",
+    ],
+  },
+  {
     title: "Apps and Websites",
     items: [
       "One codebase that runs as a website and as iPhone and Android apps",
       "Sign-in and accounts, push notifications and email",
-      "Live scores, schedules and stats from sports data feeds, including soccer",
+      "Live scores and schedules from sports data feeds, kept current by background jobs",
       "Payments and subscriptions with Stripe",
-      "Marketing websites with search engine setup, trailers and press kits",
-    ],
-  },
-  {
-    title: "Behind the Scenes",
-    items: [
-      "APIs and databases in C#/.NET and PostgreSQL",
-      "Background jobs that pull in data and keep it current",
-      "Automated testing and automated releases with GitHub Actions",
-      "Cloud hosting with Docker, on AWS and Railway",
       "AI tools built on Claude, with every step kept narrow and checkable",
     ],
   },
   {
-    title: "Design",
+    title: "Hosting and Security",
     items: [
-      "Screen design with accessibility checks",
-      "Game design and balancing",
-      "Art, 3D character and video pipelines for trailers, ads and store pages",
-    ],
-  },
-  {
-    title: "Network and Security",
-    items: [
+      "Docker on AWS and Railway, with automated tests and releases through GitHub Actions",
       "Secure sign-in that is on by default: the server won't start if security settings are missing",
       "Rate limiting, and separating data so each team only sees its own",
       "Reverse proxies, load balancers, health checks and private networking between services",
-      "Verified payment webhooks, expiring signed download links and browser security headers",
-      "Passwords and keys kept out of the code, in managed secrets",
+      "Verified payment webhooks, signed download links, and keys kept out of the code",
     ],
   },
 ];
@@ -68,8 +70,8 @@ const skillGroups = [
           grew from a simple console app into a full RPG on Steam, drawing on years of weekly D&amp;D sessions.
           <a href="/wunderelf-sports" class="text-accent hover:text-accent transition-colors font-medium">Wunderelf Sports</a>
           came next: pick'em pools and live scores on the web, iPhone and Android.
-          <a href="/wunderelf-workshop" class="text-accent hover:text-accent transition-colors font-medium">Wunderelf Workshop</a>,
-          which turns a team's documents into cited, fact-checked decks and reports, is launching soon.
+          <a href="/wunderelf-workshop" class="text-accent hover:text-accent transition-colors font-medium">Wunderelf Workshop</a>
+          is the newest: it turns a team's documents into cited, fact-checked decks and reports.
         </p>
 
         <p>
