@@ -91,11 +91,11 @@ const skillGroups = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {skillGroups.map((group) => (
           <div class="bg-surface border border-border-subtle rounded-xl p-6">
-            <h3 class="tracking-tight text-xl font-bold mb-4 text-accent">{group.title}</h3>
+            <h3 class="text-lg font-semibold mb-4 text-text">{group.title}</h3>
             <ul class="space-y-2">
               {group.items.map((item) => (
                 <li class="flex gap-3 text-sm text-text-muted leading-relaxed">
-                  <span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
+                  <span class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-text-faint" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
