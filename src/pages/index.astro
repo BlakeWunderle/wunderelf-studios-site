@@ -22,9 +22,9 @@ const cards = [
     status: "On the web, phone apps in testing",
     pitch:
       "Weekly pick'em pools for your group and live scores from 34 leagues, on the web, iPhone and Android.",
-    image: "/images/products/sports-feature.webp",
-    // The banner has text near its left edge, so show it whole rather than crop it.
-    fit: "contain",
+    image: "/images/sports/hero.webp",
+    // The league row runs along the top of the image, so the crop keeps the top and trims the empty bottom.
+    fit: "cover-top",
   },
   {
     page: "/wunderelf-workshop",
@@ -78,7 +78,7 @@ const cards = [
         {cards.map((p) => (
           <div class="flex flex-col bg-surface border border-border-subtle rounded-xl overflow-hidden">
             <a href={p.page} class="block aspect-video bg-black overflow-hidden border-b border-border-subtle" tabindex="-1" aria-hidden="true">
-              <img src={p.image} alt="" class:list={["w-full h-full", p.fit === "contain" ? "object-contain" : "object-cover"]} />
+              <img src={p.image} alt="" class:list={["w-full h-full", p.fit === "contain" ? "object-contain" : p.fit === "cover-top" ? "object-cover object-top" : "object-cover"]} />
             </a>
             <div class="flex flex-col flex-1 p-6">
               <div class="flex items-center justify-between gap-3 mb-2">
