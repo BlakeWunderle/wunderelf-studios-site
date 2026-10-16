@@ -7,13 +7,12 @@ const appUrl = "https://wunderelfsports.com";
 
 // Rendered from a seeded demo pool; every name is made up and no team logos appear.
 const screenshots = [
-  { src: "/images/sports/01-pool-games.webp", alt: "This week's games, picked" },
+  { src: "/images/sports/01-pool-games.webp", alt: "A week's games with your picks graded" },
   { src: "/images/sports/02-pool-grid.webp", alt: "A finished week's picks grid" },
-  { src: "/images/sports/04-pool-season-standings.webp", alt: "Season standings" },
-  { src: "/images/sports/05-pool-shared-picks.webp", alt: "Picks shared before kickoff" },
-  { src: "/images/sports/06-pool-following.webp", alt: "Week standings narrowed to followed players" },
-  { src: "/images/sports/07-nfl-scoreboard.webp", alt: "NFL scoreboard" },
-  { src: "/images/sports/08-game-boxscore.webp", alt: "Game box score" },
+  { src: "/images/sports/03-pool-season-standings.webp", alt: "Season standings" },
+  { src: "/images/sports/04-pool-following.webp", alt: "Week standings narrowed to starred players" },
+  { src: "/images/sports/05-nfl-scoreboard.webp", alt: "NFL scoreboard" },
+  { src: "/images/sports/06-game-boxscore.webp", alt: "Game box score" },
 ];
 ---
 
@@ -74,11 +73,11 @@ const screenshots = [
         />
         <FeatureCard
           title="Commissioner Tools"
-          description="Invite members with a link, fix a pick when someone asks, and keep track of who has paid."
+          description="Invite members with a link, and edit a pick when someone needs a hand."
         />
         <FeatureCard
-          title="Reminders"
-          description="Push notifications before picks lock, so nobody misses a week."
+          title="Reminders and a Message Board"
+          description="Push notifications before picks lock, so nobody misses a week, and a message board for each pool."
         />
         <FeatureCard
           title="Live Scores From 34 Leagues"
@@ -123,6 +122,9 @@ const screenshots = [
         <a href={`${appUrl}/privacy`} target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors underline">Privacy policy</a>
         <span class="mx-2">·</span>
         <a href="/contact" class="hover:text-accent transition-colors underline">Support</a>
+      </p>
+      <p class="mt-4 text-xs text-text-faint">
+        Wunderelf Sports is not affiliated with or endorsed by the NFL, NCAA or any league or team.
       </p>
     </div>
   </section>
